@@ -13,11 +13,14 @@
 # TODO
 
 Client:
- - [ ] Login
- - [x] Login Design
+ - [x] Setup Vue.JS
+ - [ ] Login Page
+ - [x] Login Page Design
  - [ ] Profile Page
+ - [x] Profile Page Design
   
  Server:
+ - [x] Setup Node.JS
  - [ ] Connect database
  - [ ] Make API structure
  - [ ] API login call
