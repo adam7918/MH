@@ -13,15 +13,15 @@
 # TODO
 
 Client:
-  - Login
-  - Login Design
-  - Profile Page
+ - [ ] Login
+ - [x] Login Design
+ - [ ] Profile Page
   
  Server:
-  - Connect database
-  - Make API structure
-  - API login call
+ - [ ] Connect database
+ - [ ] Make API structure
+ - [ ] API login call
   
  Database:
-  - Design
-  - Implement
+ - [ ] Design
+ - [ ] Implement
