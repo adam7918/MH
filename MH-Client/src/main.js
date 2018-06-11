@@ -3,6 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './assets/css/style.css'
+import './assets/css/fontawesome.css'
+import Axios from 'axios'
+import Auth from './auth'
+
+Vue.prototype.$http = Axios
+Vue.prototype.$auth = Auth
+Vue.prototype.$apiUrl = 'http://localhost:8080/api'
+
+window.$ = window.jQuery = require('jquery')
 
 Vue.config.productionTip = false
 
@@ -12,4 +22,9 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `IMS - ${to.name}`
+  next()
 })
