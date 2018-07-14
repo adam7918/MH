@@ -26,5 +26,5 @@ Client:
  - [ ] API login call
   
  Database:
- - [ ] Design
- - [ ] Implement
+ - [x] Design
+ - [x] Implement (skeleton)
