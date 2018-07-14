@@ -21,8 +21,8 @@ Client:
   
  Server:
  - [x] Setup Node.JS
- - [ ] Connect database
- - [ ] Make API structure
+ - [x] Connect database
+ - [x] Make API structure
  - [ ] API login call
   
  Database:
