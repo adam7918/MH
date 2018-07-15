@@ -1,5 +1,5 @@
 <template>
     <main>
-        profile page
+        <div style="height: 880px"></div>
     </main>
 </template>

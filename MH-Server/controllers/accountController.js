@@ -35,21 +35,55 @@ exports.edit_account = function (req, res) {
 };
 
 exports.add_account = function (req, res) {
-    const sql = "INSERT INTO account (username, password, email) VALUES  (?,?,?)";
-    var password = req.body.password;
-    var hashedPassword = "";
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-        bcrypt.hash(password, salt, function (err, hash) {
-            let account = {};
-            pool.query(sql, [req.body.username, hash, req.body.email], function (err, row) {
+    // Get connection
+    pool.getConnection(function (err, connection) {
+        // Begin transaction
+        connection.beginTransaction(function (err) {
+            // Throw error if error beginning transaction
+            if (err) throw err;
+
+            // ADD ACCOUNT BLOCK
+            const query1 = "INSERT INTO account (username, password, email) VALUES  (?,?,?)";
+            var password = req.body.password;
+            bcrypt.genSalt(saltRounds, function (err, salt) {
+                bcrypt.hash(password, salt, function (err, hash) {
+                    console.log('ADD ACCOUNT BLOCK')
+                    connection.query(query1, [req.body.username, hash, req.body.email], function (err, row) {
+                        if (err) {
+                            return connection.rollback(function () {
+                                res.status(400).json({ error: err.code });
+                            })
+                        } else { 
+                            // ADD PLAYER STATS BLOCK
+                            const query2 = "INSERT INTO player_stats (username, level, experience, gold, health, energy) VALUES  (?, 1, 0, 0, 100, 5)";
+                            connection.query(query2, req.body.username, function (err, row) {
+
+                                if (err) {
+                                    return connection.rollback(function () {
+                                        res.status(400).json({ error: err.code });
+                                    })
+                                }
+                            });
+
+                            // ADD NEW STUFF HERE
+                        }
+                    });
+                })
+            });
+
+
+            // Commit transaction
+            connection.commit(function (err) {
+                console.log('COMMIT BLOCK')
                 if (err) {
-                    res.status(409).json({ error: err.code });
-                } else {
-                    res.status(201).json(req.body.username);
+                    console.log(err);
+                    return connection.rollback();
                 }
+                res.status(201).json({success:'Account Created'});     // return response of newly added item
+                connection.release();    // release connection back to pool
             });
         })
-    });
+    })
 };
 
 exports.login = function (req, res) {
