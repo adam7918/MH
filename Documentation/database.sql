@@ -1,6 +1,6 @@
 CREATE TABLE `account` (
 	`username` varchar(50) NOT NULL UNIQUE,
-	`password` varchar(50) NOT NULL,
+	`password` varchar(255) NOT NULL,
 	`email` varchar(50) NOT NULL,
 	`registered_on` DATETIME NOT NULL DEFAULT now(),
 	`last_online` DATETIME NOT NULL DEFAULT now(),

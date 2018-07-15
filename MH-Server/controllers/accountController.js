@@ -1,6 +1,8 @@
 const pool = require('../database');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 
 exports.view_accounts = function (req, res) {
@@ -31,6 +33,7 @@ exports.view_account = function (req, res) {
 //TODO
 exports.edit_account = function (req, res) {
 };
+
 exports.add_account = function (req, res) {
     const sql = "INSERT INTO account (username, password, email) VALUES  (?,?,?)";
     var password = req.body.password;
@@ -47,7 +50,41 @@ exports.add_account = function (req, res) {
             });
         })
     });
-    console.log(hashedPassword);
-
-
 };
+
+exports.login = function (req, res) {
+    const errors = ''
+    if (errors.length)
+        res.status(400).json({ errors: errors });
+    else {
+        var password = req.body.password;
+        bcrypt.genSalt(saltRounds, function (err, salt) {
+            bcrypt.hash(password, salt, function (err, hash) {
+                pool.query('SELECT password, username FROM account WHERE username = ?', [req.body.username], function (err, rows) {
+                    if (rows.length === 0) {
+                        res.status(400).json({ error: "Incorrect username or password" });
+                    } else {
+                        console.log(rows[0].password)
+                        console.log(req.body.password)
+                        console.log(password)
+                        console.log(hash)
+                        bcrypt.compare(password, rows[0].password, function (err, compRes) {
+                            // res == true
+                            if (compRes === true) {
+                                const token = jwt.sign({username: rows[0].username}, config.token_secret, {/*expiresIn: 300*/});
+                                res.status(200).json({token: token});
+                                console.log('WORKED')
+                            }
+                            else {
+                                console.log('FAILED')
+                                res.status(400).json({ error: "Incorrect username or password" });
+                            }
+                        });
+                    }
+                });
+            })
+        });
+
+    }
+};
+

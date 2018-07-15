@@ -10,7 +10,7 @@ import Auth from './auth'
 
 Vue.prototype.$http = Axios
 Vue.prototype.$auth = Auth
-Vue.prototype.$apiUrl = 'http://localhost:8080/api'
+Vue.prototype.$apiUrl = 'http://localhost:3000/api'
 
 window.$ = window.jQuery = require('jquery')
 

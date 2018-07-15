@@ -4,6 +4,7 @@ import LoginPage from '@/components/LoginPage'
 import ProfilePage from '@/components/ProfilePage'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Error404Page from '@/components/404Page'
 
 Vue.use(Router)
 
@@ -15,13 +16,19 @@ export default new Router({
       component: LoginPage
     },
     {
-      path:'/profile/:userid',
+      path:'/profile/:username',
       name:'Profile',
       components: {
         default: ProfilePage,
         header: Header,
         footer: Footer
       }
+    },
+    // 404 Page - KEEP AT BOTTOM
+    {
+      path: '*',
+      name: '404',
+      component: Error404Page
     }
   ]
 })
