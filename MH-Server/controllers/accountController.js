@@ -64,19 +64,13 @@ exports.login = function (req, res) {
                     if (rows.length === 0) {
                         res.status(400).json({ error: "Incorrect username or password" });
                     } else {
-                        console.log(rows[0].password)
-                        console.log(req.body.password)
-                        console.log(password)
-                        console.log(hash)
                         bcrypt.compare(password, rows[0].password, function (err, compRes) {
                             // res == true
                             if (compRes === true) {
                                 const token = jwt.sign({username: rows[0].username}, config.token_secret, {/*expiresIn: 300*/});
                                 res.status(200).json({token: token});
-                                console.log('WORKED')
                             }
                             else {
-                                console.log('FAILED')
                                 res.status(400).json({ error: "Incorrect username or password" });
                             }
                         });
