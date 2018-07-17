@@ -1,6 +1,6 @@
 # mh-client
 
-> Medieval Havoc Text-based MMORPG
+> Medieval Havoc Text-based MMORPG.
 
 ## Build Setup
 
