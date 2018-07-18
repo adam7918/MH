@@ -2,7 +2,7 @@
     <main>
         <section class="login-background-top"></section>
         <div class="container">
-            <h1 id="login-title">Medieval <span>Havoc</span> </h1>
+            <h1 id="login-title">Medieval<span>Havoc</span> </h1>
             <!-- Login Form -->
             <div class="login-panel" v-if="!registerMode">
                 <p v-if="registrationSuccessMessage" class="login-panel__success">{{registrationSuccessMessage}}</p>
