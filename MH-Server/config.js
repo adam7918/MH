@@ -11,7 +11,7 @@ config.default_rows_per_page = 50;
 config.max_rows_per_page = 100;
 
 // Host settings
-config.app_port = 3000;
+config.app_port = 80;
 config.host = "localhost";
 config.url_prefix = "";
 
