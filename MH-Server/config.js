@@ -23,10 +23,10 @@ config.url_prefix = "";
 
 
 // Database connection
-config.db_name = "medievalhavoc";
+config.db_name = "srhgegugdw";
 config.db_host = "localhost";
-config.db_user = "root";
-config.db_pass = "";
+config.db_user = "srhgegugdw";
+config.db_pass = "3q3avk6DsD";
 
 
 module.exports = config;
