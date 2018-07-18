@@ -7,7 +7,7 @@ const colors = require('colors');   // Colors (console output)
 const cors = require('cors');       // Needed for front-end accessibility to the database 
 const config = require('./config'); // Global configuration file
 const db = require('./database');   // Database file
-
+// Adam
 
 loadModules();
 app.listen(config.app_port);
