@@ -4,7 +4,7 @@ const cors = require('cors');
 
 // Route all paths to right routers
 
-router.use(prefix + '/account', cors(), require("./accountRoutes"));
+router.use('/account', cors(), require("./accountRoutes"));
 
 // todo: Custom 404 page etc
 
