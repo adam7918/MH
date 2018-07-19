@@ -23,7 +23,7 @@ exports.view_account = function (req, res) {
         if (err) {
             res.status(400).json({ error: err });
         } else if (row.length == 0) {
-            res.status(404).json({ error: "User not found" });
+            res.status(404).json({ error: "User not found." });
         } else {
             res.status(200).json(row[0]);
         }
