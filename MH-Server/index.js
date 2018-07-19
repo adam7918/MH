@@ -10,8 +10,12 @@ const db = require('./database');   // Database file
 // Adam
 
 loadModules();
-app.listen(config.app_port);
-console.log("--- Server started on: "+ new Date().toLocaleString() +" ---" .green.bold);
+var server = app.listen(config.app_port, function (){
+    console.log(("--- Server started on: "+ new Date().toLocaleString() +" ---").green.bold);
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Listening at http://%s:%s', host, port);
+  });
 
 module.exports = app;
 function loadModules() {
