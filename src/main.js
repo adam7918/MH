@@ -10,11 +10,11 @@ import Auth from './auth'
 
 Vue.prototype.$http = Axios
 Vue.prototype.$auth = Auth
-Vue.prototype.$apiUrl = 'http://www.medievalhavoc.com/'
+Vue.prototype.$apiUrl = 'http://www.medievalhavoc.com:3000'
 
 window.$ = window.jQuery = require('jquery')
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false  
 
 /* eslint-disable no-new */
 new Vue({
