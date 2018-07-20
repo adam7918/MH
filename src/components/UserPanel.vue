@@ -7,11 +7,15 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" />
                 <div class="user-panel__user">
                     <div class="user-panel__username">
-                        <p>Droopy</p>
+                        <router-link to="/profile" tag="p">Droopy</router-link>
                     </div>
                     <div class="user-panel__buttons">
-                        <button><i class="fas fa-user"></i> Profile</button>
-                        <button><i class="fas fa-box-open"></i> Inventory</button>
+                        <router-link to="/profile" tag="button">
+                            <i class="fas fa-user"></i> Profile
+                        </router-link>
+                        <router-link to="/inventory" tag="button">
+                            <i class="fas fa-box-open"></i> Inventory
+                        </router-link>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <template>
     <main>
-        404 Page Not Found
+        <div style="height: 70vh"><p>404 Page Not Found</p></div>
     </main>
 </template>
