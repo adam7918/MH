@@ -2,6 +2,8 @@
         <header class="nav">
             <div class="nav__left">
                 <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
+                <input type="text" placeholder="Enter a username...">
+                <i class="fas fa-search"></i>
             </div>
             <div class="nav__right">
                 <router-link to="/roadmap" tag="a">Roadmap</router-link>

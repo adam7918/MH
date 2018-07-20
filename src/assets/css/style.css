@@ -33,6 +33,37 @@ a {
     display: flex;
     flex-direction: row;
     margin-left: 18%;
+    align-items: center;
+}
+
+.nav__left > input {
+    margin-left: 15px;
+    height: 28px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border: 0;
+    background: #222;
+    color: #aaa;
+    padding-left: 12px;
+    outline: none;
+}
+
+.nav__left > i {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    color: #666;
+    background: #222;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+
+.nav__left > input:focus {
+    background:#333;
 }
 
 .nav__right {
@@ -43,7 +74,7 @@ a {
 }
 
 .nav__right > *:not(:last-child){
-    margin-right: 28px;
+    margin-right: 17px;
 }
 
 .nav__right > a {
@@ -61,7 +92,7 @@ a {
     font-family: 'Roboto', sans-serif !important;
     border: none;
     text-align: center;
-    width: 110px;
+    width: 100px;
     height: 35px;
     text-transform: capitalize;
     border-radius: 4px;
@@ -398,9 +429,29 @@ a {
     background: #222;
 }
 
+/* Chat */
+
+.chat-tab {
+    position: fixed;
+    bottom: -5px;;
+    right: 30px;
+    padding: 12px;
+    background: #ca452f;
+    color: #fff;
+    font-size: 18px;
+    height: 26px;
+    width: 170px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+}
+
 .placeholderdiv {
     color: #777;
     padding-top: 20px;
     min-height: 70vh;
     margin: 0 18% 0 18%;
 }
+
+
