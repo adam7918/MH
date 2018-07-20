@@ -4,7 +4,7 @@
         </article>
         <article class="user-panel">
             <div class="user-panel__left">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" />
+                <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />
                 <div class="user-panel__user">
                     <div class="user-panel__username">
                         <router-link to="/profile" tag="p">Lvl 3. Droopy</router-link>
