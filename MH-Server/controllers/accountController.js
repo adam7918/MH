@@ -19,7 +19,7 @@ exports.view_accounts = function (req, res) {
 
 exports.view_account = function (req, res) {
     //todo: error handling
-    pool.query("SELECT account.username, account.password, account.email, account.registered_on, account.last_online FROM `account` WHERE account.username = ?", [req.params.id], function (err, row) {
+    pool.query("SELECT account.username, account.email, account.registered_on, account.last_online FROM `account` WHERE account.username = ?", [req.params.id], function (err, row) {
         if (err) {
             res.status(400).json({ error: err });
         } else if (row.length == 0) {
