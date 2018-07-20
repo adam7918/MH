@@ -25,7 +25,7 @@ config.url_prefix = "";
 // Database connection
 config.db_name = "medievalhavoc";
 config.db_host = "localhost";
-config.db_user = "root";
+config.db_user = "admin";
 config.db_pass = "troll123";
 
 
