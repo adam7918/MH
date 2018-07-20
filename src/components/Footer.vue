@@ -1,5 +1,4 @@
 <template>
-    <main>
         <footer class="footer">
             <div class="footer__left">
                 <p>© Medievalhavoc.com 2018. All rights reserved.</p>
@@ -11,5 +10,4 @@
                 <router-link to="/contact" tag="a">Contact Us</router-link>
             </div>
         </footer>
-    </main>
 </template>

@@ -1,5 +1,4 @@
 <template>
-    <main>
         <header class="nav">
             <div class="nav__left">
                 <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
@@ -11,7 +10,6 @@
                 <router-link to="/explore" tag="button" class="nav__button">Play</router-link>
             </div>
         </header>
-    </main>
 </template>
 <script>
 export default {

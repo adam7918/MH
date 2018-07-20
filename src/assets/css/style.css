@@ -229,6 +229,7 @@ a {
     background-image: url(http://monodomo.com/free-wallpapers/medieval-battle-wallpapers-1080p-For-Free-Wallpaper.jpg);
     background-size: cover;
     background-position: center center; 
+    overflow: hidden;
     opacity: 0.1;
     filter: blur(5px);
     -webkit-filter: blur(5px);
@@ -341,3 +342,58 @@ a {
     font-weight: 500;
 }
 
+.user-panel--gold {
+    color:	#FFD700 !important;
+}
+
+/* navbar */
+
+.navbar {
+    height: 50px;
+    background: #333333;
+}
+
+.navbar-items {
+    margin: 0 18% 0 18%;
+    display: flex;
+    flex-direction: row;
+    color: #ddd;
+    font-size: 14px;
+    height: 100%;
+}
+
+.navbar-items p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    text-align: center;
+}
+
+.navbar-items ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none; 
+    margin: 0;
+    padding: 0; 
+}
+
+.navbar-items ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor:pointer;
+}
+
+.navbar-items--active {
+    border-top: 2px solid #ca452f;
+    background: #222;
+}
+
+.placeholderdiv {
+    color: #777;
+    padding-top: 20px;
+    min-height: 70vh;
+    margin: 0 18% 0 18%;
+}

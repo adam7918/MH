@@ -9,6 +9,7 @@ import Axios from 'axios'
 import Auth from './auth'
 import VueAnalytics from 'vue-analytics'
 
+
 Vue.use(VueAnalytics, {
   id: 'UA-47027871-5'
 })

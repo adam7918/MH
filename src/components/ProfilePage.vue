@@ -1,9 +1,18 @@
 <template>
     <main>
-        <div style="height: 50px; background: #333;"></div>
-        <div style="height: 67vh;"></div>
-
-
+        <div class="navbar">
+            <div class="navbar-items">
+                <ul>
+                    <li class="navbar-items--active">
+                        <p>Overview</p>
+                    </li>
+                    <li>
+                        <p>PvP</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="height: 70vh"></div>
     </main>
 </template>
 <script>
