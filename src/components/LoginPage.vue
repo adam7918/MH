@@ -54,6 +54,9 @@ export default {
       }
     },
     created() {
+        if(this.$auth.checkAuth()){
+            this.$router.push('/profile/' + localStorage.getItem('username'))
+        }
 
     },
     methods: {
@@ -93,6 +96,8 @@ export default {
             })
             .then(response =>{
                 this.$router.push({name:'Profile', params:{username:this.loginUsername}})
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('username', this.loginUsername)
             })
             .catch(e => {
                 this.formErrorMessage = "Incorrect username or password"

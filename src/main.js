@@ -25,6 +25,6 @@ new Vue({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `IMS - ${to.name}`
+  document.title = `MH - ${to.name}`
   next()
 })
