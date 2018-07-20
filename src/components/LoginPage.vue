@@ -11,7 +11,7 @@
                     <input v-model="loginUsername" type="text" placeholder="username" required>
                     <input v-model="loginPassword" type="password" placeholder="password" required>
                     <input type="submit" value="LOGIN">
-                    <span>No account yet? Click <a @click="registerMode = !registerMode; clearMessagesAndForms()">here</a> to register.</span> 
+                    <span>No account yet? Click <a @click="/* registerMode = !registerMode; clearMessagesAndForms() */ closedRegistration()">here</a> to register.</span> 
                 </form>
             </div>
             <!-- Registration Form -->
@@ -110,6 +110,11 @@ export default {
             this.registerUsername = ''
             this.registerEmail = ''
             this.registerPassword = ''
+        },
+
+        /** TEMPORARY TO CLOSE ACCOUNT REGISTRATION */
+        closedRegistration: function(){
+            alert('Account registration is not yet open to the public.')
         }
     }
 }
