@@ -4,6 +4,7 @@
                 <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
             </div>
             <div class="nav__right">
+                <router-link to="/roadmap" tag="a">Roadmap</router-link>
                 <router-link to="/rankings" tag="a">Rankings</router-link>
                 <router-link to="/users" tag="a">0 Online</router-link>
                 <a @click='logout()'>Logout</a>
