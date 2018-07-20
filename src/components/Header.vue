@@ -7,8 +7,28 @@
             <div class="nav__right">
                 <a>Rankings</a>
                 <a>0 Online</a>
+                <a @click='logout()'>Logout</a>
                 <button class="nav__button">Play</button>
             </div>
         </header>
     </main>
 </template>
+<script>
+export default {
+    data(){
+        return {
+
+        }
+    },
+    created(){
+
+    },
+    methods: {
+        logout: function(){
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            this.$router.push('/')
+        }
+    }
+}
+</script>
