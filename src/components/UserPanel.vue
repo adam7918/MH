@@ -10,8 +10,8 @@
                         <router-link to="/profile" tag="p">Lvl 3. Droopy</router-link>
                     </div>
                     <div class="user-panel__buttons">
-                        <router-link to="/profile" tag="button">
-                            <i class="fas fa-user"></i> Profile
+                        <router-link to="/mail" tag="button" class="user-panel--notification">
+                            <i class="fas fa-envelope user-panel--notification"></i> Mail (1)
                         </router-link>
                         <router-link to="/inventory" tag="button">
                             <i class="fas fa-box-open"></i> Inventory

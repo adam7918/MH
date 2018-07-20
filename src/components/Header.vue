@@ -7,7 +7,7 @@
                 <router-link to="/rankings" tag="a">Rankings</router-link>
                 <router-link to="/users" tag="a">0 Online</router-link>
                 <a @click='logout()'>Logout</a>
-                <router-link to="/explore" tag="button" class="nav__button">Play</router-link>
+                <router-link to="/explore" tag="button" class="nav__button">Explore</router-link>
             </div>
         </header>
 </template>

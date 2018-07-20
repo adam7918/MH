@@ -271,6 +271,7 @@ a {
     color: white;
     font-size: 25px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .user-panel__username > p {
@@ -344,6 +345,10 @@ a {
 
 .user-panel--gold {
     color:	#FFD700 !important;
+}
+
+.user-panel--notification {
+    background:#719E2F !important;
 }
 
 /* navbar */

@@ -15,6 +15,7 @@ import RankingPage from '@/components/RankingPage'
 import TermsPage from '@/components/TermsPage'
 import OverviewPage from '@/components/OverviewPage'
 import UserStatPage from '@/components/UserStatPage'
+import MailPage from '@/components/MailPage'
 
 Vue.use(Router)
 
@@ -50,6 +51,16 @@ export default new Router({
       name:'Contact Us',
       components: {
         default: ContactPage,
+        header: Header,
+        userpanel: UserPanel,
+        footer: Footer
+      }
+    },
+    {
+      path:'/mail',
+      name:'Mail',
+      components: {
+        default: MailPage,
         header: Header,
         userpanel: UserPanel,
         footer: Footer
