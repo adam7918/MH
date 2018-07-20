@@ -12,3 +12,18 @@
         <div class="placeholderdiv">404 Page Not Found.</div>
     </main>
 </template>
+<script>
+import axios from 'axios'
+
+export default {
+    data() {
+      return {
+      }
+    },
+    created() {
+        if(!this.$auth.checkAuth()){
+            this.$router.push('/')
+        }
+    },
+}
+</script>

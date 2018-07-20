@@ -3,6 +3,7 @@
       <router-view name="header"/>
       <router-view name="userpanel"/>
       <router-view />
+      <router-view name="chat"/>
       <router-view name="footer"/>
   </div>
 </template>

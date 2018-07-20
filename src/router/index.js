@@ -17,6 +17,7 @@ import OverviewPage from '@/components/OverviewPage'
 import UserStatPage from '@/components/UserStatPage'
 import MailPage from '@/components/MailPage'
 import Roadmap from '@/components/Roadmap'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -33,6 +34,7 @@ export default new Router({
       components: {
         default: NavigatePage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -43,6 +45,7 @@ export default new Router({
       components: {
         default: PrivacyPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -53,6 +56,7 @@ export default new Router({
       components: {
         default: ContactPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -63,6 +67,7 @@ export default new Router({
       components: {
         default: Roadmap,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -73,6 +78,7 @@ export default new Router({
       components: {
         default: MailPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -83,6 +89,7 @@ export default new Router({
       components: {
         default: InventoryPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -93,6 +100,7 @@ export default new Router({
       components: {
         default: TermsPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -103,6 +111,7 @@ export default new Router({
       components: {
         default: UserStatPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -113,6 +122,7 @@ export default new Router({
       components: {
         default: OverviewPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -123,6 +133,7 @@ export default new Router({
       components: {
         default: FaqPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -133,6 +144,7 @@ export default new Router({
       components: {
         default: RankingPage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -143,6 +155,7 @@ export default new Router({
       components: {
         default: ProfilePage,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
@@ -154,6 +167,7 @@ export default new Router({
       components: {
         default: Error404Page,
         header: Header,
+        chat: Chat,
         userpanel: UserPanel,
         footer: Footer
       }
