@@ -1,6 +1,8 @@
 <template>
     <main>
-        <div style="height: 890px">Hello</div>
+        <div style="height: 50px; background: #333;"></div>
+        <div style="height: 67vh;"></div>
+
 
     </main>
 </template>

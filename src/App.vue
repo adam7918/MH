@@ -1,6 +1,7 @@
 <template>
   <div id="app">
       <router-view name="header"/>
+      <router-view name="userpanel"/>
       <router-view />
       <router-view name="footer"/>
   </div>

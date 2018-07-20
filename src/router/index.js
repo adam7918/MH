@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LoginPage from '@/components/LoginPage'
+import UserPanel from '@/components/UserPanel'
 import ProfilePage from '@/components/ProfilePage'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -21,6 +22,7 @@ export default new Router({
       components: {
         default: ProfilePage,
         header: Header,
+        userpanel: UserPanel,
         footer: Footer
       }
     },

@@ -208,3 +208,127 @@ body {
     color: #bbb;
     cursor: pointer;
 }
+
+/* USER PANEL */
+
+.user-panel-background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 135px;
+    top: 65px;
+    background-image: url(http://monodomo.com/free-wallpapers/medieval-battle-wallpapers-1080p-For-Free-Wallpaper.jpg);
+    background-size: cover;
+    background-position: center center; 
+    opacity: 0.1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+}
+
+.user-panel {
+    z-index: 2;
+    color: #777;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 135px;
+    justify-content: space-between;
+
+}
+
+.user-panel__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 18%;
+}
+
+.user-panel__left > img {
+    margin-right: 20px;
+    height: 80px;
+    width: 80px;
+}
+
+.user-panel__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-panel__username {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.user-panel__username > p {
+    margin: 0 0 0 0;
+}
+.user-panel__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 9px;
+}
+
+.user-panel__buttons > button {
+    font-family: 'Roboto', sans-serif !important;
+    border: none;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    height: 30px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    color: #ccc;
+    background: #ca452f;
+    cursor: pointer;
+}
+
+
+.user-panel__buttons > button:not(:first-child) {
+    margin-left: 10px;
+}
+
+.user-panel__buttons > button:hover {
+    background: #ce523d;
+}
+
+.user-panel__buttons i {
+    margin: 0 4px 0 0;
+}
+
+.user-panel__right {
+    display: flex;
+    align-items: center;
+
+    flex-direction: row;
+    margin-right: 18%;
+}
+
+.user-panel__stat {
+    margin: 0 13px 0 13px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-panel__stat > p {
+    margin: 5px 0 5px 0;
+}
+
+.user-panel__stat > p:first-child {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+}
+.user-panel__stat > p:last-child {
+    color: #777;
+    font-size: 12px;
+    font-weight: 500;
+}
+
