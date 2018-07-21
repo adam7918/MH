@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 const token = require('../routes/jwtHandler');
 
-exports.view_playerstats_by_id = function (req, res) {
+exports.view_own_playerstats = function (req, res) {
     pool.query('SELECT * FROM playerstats WHERE username = ?',[req.username], function (err, rows) {
         if (err) {
             res.status(400).json(err);
