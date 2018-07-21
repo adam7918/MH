@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');  // JSON Parser
 const helmet = require('helmet');           // Protection against well known vulnerabilities
 const colors = require('colors');   // Colors (console output) 
 const cors = require('cors');       // Needed for front-end accessibility to the database 
+const logger = require('morgan');   // Morgan (logging) 
 const config = require('./config'); // Global configuration file
 const db = require('./database');   // Database file
 // Adam
@@ -12,13 +13,11 @@ const db = require('./database');   // Database file
 loadModules();
 var server = app.listen(config.app_port, function (){
     console.log(("--- Server started on: "+ new Date().toLocaleString() +" ---").green.bold);
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('Listening at http://%s:%s', host, port);
   });
 
 module.exports = app;
 function loadModules() {
+    app.use(logger('dev'));
     app.use(bodyParser.urlencoded({
         extended: true
     }));
