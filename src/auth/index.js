@@ -7,7 +7,9 @@ checkAuth(){
     var authorized = true;
     if (!localStorage.getItem('token')){
         authorized = false
-    } else if (!localStorage.getItem('username'))
+    } else if (!localStorage.getItem('username')){
+        authorized = false
+    }
     return authorized
 },
 }
