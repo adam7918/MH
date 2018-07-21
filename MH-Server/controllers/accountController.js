@@ -30,6 +30,28 @@ exports.view_account = function (req, res) {
     });
 };
 
+exports.get_count_users_online = function (req, res) {
+    pool.query("SELECT COUNT(*) FROM account WHERE last_online > (now() - interval 30 minute)", function (err, row) {
+        if (err) {
+            res.status(400).json({ error: err });
+        } else if (row.length == 0) {
+            res.status(404).json({ error: "No user online." });
+        } else {
+            res.status(200).json(row[0]);
+        }
+    });
+}
+
+exports.update_last_online = function (req, res) {
+    pool.query("UPDATE account SET last_online = now() WHERE username = ?", [req.body.username], function (err, row) {
+        if (err) {
+            res.status(400).json({ error: err });
+        } else {
+            res.status(200);
+        }
+    });
+}
+
 //TODO
 exports.edit_account = function (req, res) {
 };
