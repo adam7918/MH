@@ -69,7 +69,6 @@ exports.add_account = function (req, res) {
             var password = req.body.password;
             bcrypt.genSalt(saltRounds, function (err, salt) {
                 bcrypt.hash(password, salt, function (err, hash) {
-                    console.log('ADD ACCOUNT BLOCK')
                     connection.query(query1, [req.body.username, hash, req.body.email], function (err, row) {
                         if (err) {
                             return connection.rollback(function () {
@@ -96,9 +95,8 @@ exports.add_account = function (req, res) {
 
             // Commit transaction
             connection.commit(function (err) {
-                console.log('COMMIT BLOCK')
                 if (err) {
-                    console.log(err);
+
                     return connection.rollback();
                 }
                 res.status(201).json({success:'Account Created'});     // return response of newly added item
@@ -123,7 +121,7 @@ exports.login = function (req, res) {
                         bcrypt.compare(password, rows[0].password, function (err, compRes) {
                             // res == true
                             if (compRes === true) {
-                                const token = jwt.sign({username: rows[0].username}, req.app.get('private-key'), {expiresIn: 30});
+                                const token = jwt.sign({username: rows[0].username}, req.app.get('private-key'), {expiresIn: '12h'});
                                 res.status(200).json({token: token});
                             }
                             else {

@@ -2,8 +2,6 @@ var jwt = require('jsonwebtoken');
 
 function verifyToken(req, res, next){
     var token = req.body.token || req.query.token || req.headers['token'];
-    console.log(token)
-    console.log(req.app.get('private-key'))
     // decode token
     if (token) {
         // verifies secret
