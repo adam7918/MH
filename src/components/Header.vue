@@ -25,14 +25,14 @@ export default {
     },
     created(){
         this.getOnlinePlayerCount()
-        this.updateLastOnline()
+        //this.updateLastOnline()
     },
         // WATCH THESE VARIABLES FOR CHANGES
     watch: {
       // ON ROUTE CHANGE HIDE MENUS
       '$route': function () {
         this.getOnlinePlayerCount()
-        this.updateLastOnline()
+       // this.updateLastOnline()
       },
     },
     methods: {
