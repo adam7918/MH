@@ -1,7 +1,7 @@
 const router = require('express').Router(); // Load router
 const account_controller = require('../controllers/accountController');// Load controller
 // const auth = require('../controllers/authController');
-const token = require('jwtHandler');// Load controller
+const token = require('./jwtHandler');// Load controller
 
 
 // Route all paths to right controller
