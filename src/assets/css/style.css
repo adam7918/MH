@@ -85,7 +85,7 @@ a {
 }
 
 .nav__right > a:hover {
-    color: #bbb
+    color: #ccc
 }
 
 .nav__button {
@@ -324,7 +324,6 @@ a {
     font-size: 12px;
     font-weight: 400;
     height: 30px;
-    text-transform: uppercase;
     border-radius: 4px;
     color: #ccc;
     background: #ca452f;
@@ -382,6 +381,10 @@ a {
 
 .user-panel--notification {
     background:#719E2F !important;
+}
+
+.user-panel--notification:hover {
+    background: #72a526 !important;
 }
 
 /* navbar */
