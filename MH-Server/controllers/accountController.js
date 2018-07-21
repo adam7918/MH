@@ -43,7 +43,7 @@ exports.get_count_users_online = function (req, res) {
 }
 
 exports.update_last_online = function (req, res) {
-    pool.query("UPDATE account SET last_online = now() WHERE username = ?", [req.body.username], function (err, row) {
+    pool.query("UPDATE account SET last_online = now() WHERE username = ?", [req.username], function (err, row) {
         if (err) {
             res.status(400).json({ error: err });
         } else {

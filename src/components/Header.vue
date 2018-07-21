@@ -51,9 +51,7 @@ export default {
             })
         },
         updateLastOnline(){
-            axios.put(this.$apiUrl + '/account/online', {
-                username    : localStorage.getItem('username'),
-            }, this.$auth.getTokenHeader())
+            axios.put(this.$apiUrl + '/account/online', this.$auth.getTokenHeader())
             .then(response =>{
                 
             })
