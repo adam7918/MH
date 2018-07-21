@@ -5,7 +5,7 @@ function verifyToken(req, res, next){
     // decode token
     if (token) {
         // verifies secret
-        jwt.verify(token, req.app.get('private_key'), function (err, decoded) {
+        jwt.verify(token, req.app.get('private-key'), function (err, decoded) {
             if (err) {
                 return res.status(401).json({success: false, message: 'Failed to authenticate token.'});
             } else {

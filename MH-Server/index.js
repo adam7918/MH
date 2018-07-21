@@ -22,7 +22,7 @@ function loadModules() {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    app.set('private_key',"REALLYPRIVATE");
+    app.set('private-key',"00112244aa");
     app.use(bodyParser.json());     // body parser
     app.use(require('./routes'));   // Load routes
     app.use(cors());   // Allow access to the front-end
