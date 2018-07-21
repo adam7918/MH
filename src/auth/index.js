@@ -4,7 +4,10 @@ export default {
 
 // CHECK IF JWT TOKEN EXISTS (IS LOGGED IN)
 checkAuth(){
-    var jwt = localStorage.getItem('token')
-    return jwt
+    var authorized = true;
+    if (!localStorage.getItem('token')){
+        authorized = false
+    } else if (!localStorage.getItem('username'))
+    return authorized
 },
 }

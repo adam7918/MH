@@ -7,7 +7,7 @@
                 <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />
                 <div class="user-panel__user">
                     <div class="user-panel__username">
-                        <router-link to="/profile" tag="p">Lvl 3. Droopy</router-link>
+                        <router-link to="/profile" tag="p">Lvl 3. {{username}}</router-link>
                     </div>
                     <div class="user-panel__buttons">
                         <router-link to="/mail" tag="button" class="user-panel--notification">
@@ -46,13 +46,23 @@ import axios from 'axios'
 export default {
     data(){
         return {
-
+            username: '',
         }
     },
     created(){
-
+        this.updatePanel()
+    },
+      watch: {
+      // ON ROUTE CHANGE HIDE MENUS
+      '$route': function () {
+        this.updatePanel()
+      },
     },
     methods: {
+        updatePanel: function(){
+            this.username = localStorage.getItem('username')
+        }
+        
     }
 }
 </script>
