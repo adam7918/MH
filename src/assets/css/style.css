@@ -441,18 +441,19 @@ button:focus, button:active {
 
 .chat-tab {
     position: fixed;
-    bottom: -5px;;
+    bottom: 0;
     right: 30px;
     padding: 12px;
     background: #ca452f;
     color: #fff;
-    font-size: 18px;
-    height: 26px;
+    font-size: 16px;
+    height: 20px;
     width: 170px;
     cursor: pointer;
     font-weight: 600;
     text-align: center;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .placeholderdiv {

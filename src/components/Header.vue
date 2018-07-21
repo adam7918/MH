@@ -6,7 +6,6 @@
                 <i class="fas fa-search"></i>
             </div>
             <div class="nav__right">
-                <router-link to="/roadmap" tag="a">Roadmap</router-link>
                 <router-link to="/rankings" tag="a">Rankings</router-link>
                 <router-link to="/users" tag="a">{{playersOnline}} Online</router-link>
                 <a @click='logout()'>Logout</a>
