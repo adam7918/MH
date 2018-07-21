@@ -123,7 +123,7 @@ exports.login = function (req, res) {
                         bcrypt.compare(password, rows[0].password, function (err, compRes) {
                             // res == true
                             if (compRes === true) {
-                                const token = jwt.sign({username: rows[0].username}, req.app.get('private-key'), {/*expiresIn: 300*/});
+                                const token = jwt.sign({username: rows[0].username}, req.app.get('private-key'), {expiresIn: 30});
                                 res.status(200).json({token: token});
                             }
                             else {

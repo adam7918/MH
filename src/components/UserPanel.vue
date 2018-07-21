@@ -21,19 +21,19 @@
             </div>
             <div class="user-panel__right">
                 <div class="user-panel__stat">
-                    <p>100%</p>
+                    <p>{{health}}</p>
                     <p>Health</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p>100%</p>
+                    <p>{{energy}}</p>
                     <p>Energy</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p>0%</p>
+                    <p>{{experience}}</p>
                     <p>XP</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p class="user-panel--gold">30,000</p>
+                    <p class="user-panel--gold">{{gold}}</p>
                     <p>Gold</p>
                 </div>
             </div>
@@ -47,6 +47,11 @@ export default {
     data(){
         return {
             username: '',
+            level: '',
+            experience: '',
+            gold: '',
+            health: '',
+            energy: ''
         }
     },
     created(){
@@ -61,6 +66,17 @@ export default {
     methods: {
         updatePanel: function(){
             this.username = localStorage.getItem('username')
+            axios.get(this.$apiUrl + '/playerstat/', this.$auth.getTokenHeader())
+            .then(response =>{
+                this.level = response.data.level
+                this.experience = reponse.data.experience
+                this.gold = response.data.gold
+                this.health = response.data.health
+                this.energy = response.data.energy
+            })
+            .catch(e => {
+                
+            })
         }
         
     }
