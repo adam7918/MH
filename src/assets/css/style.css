@@ -43,7 +43,8 @@ button:focus, button:active {
 .nav__left > input {
     margin-left: 15px;
     height: 28px;
-    width: 102px;
+    width: 104px;
+    font-size: 12px;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
     border: 0;
@@ -59,7 +60,7 @@ button:focus, button:active {
     line-height: 30px;
     padding-right: 10px;
     padding-left: 10px;
-    font-size: 15px;
+    font-size: 12px;
     color: #666;
     background: #222;
     border-top-right-radius: 4px;
