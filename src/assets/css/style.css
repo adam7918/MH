@@ -357,6 +357,7 @@ button:focus, button:active {
 }
 
 .user-panel__stat {
+    width: 50px;
     margin: 0 13px 0 13px;
     text-transform: uppercase;
     display: flex;

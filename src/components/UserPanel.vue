@@ -29,12 +29,12 @@
                     <p>Energy</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p>{{experience}}</p>
-                    <p>XP</p>
-                </div>
-                <div class="user-panel__stat">
                     <p class="user-panel--gold">{{gold}}</p>
                     <p>Gold</p>
+                </div>
+                <div class="user-panel__stat">
+                    <p>{{experience}}</p>
+                    <p>Experience</p>
                 </div>
             </div>
         </article>
