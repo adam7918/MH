@@ -7,7 +7,7 @@
                 <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />
                 <div class="user-panel__user">
                     <div class="user-panel__username">
-                        <router-link to="/profile" tag="p">Lvl 3. {{username}}</router-link>
+                        <router-link to="/profile" tag="p">Lvl {{level}}. {{username}}</router-link>
                     </div>
                     <div class="user-panel__buttons">
                         <router-link to="/mail" tag="button" class="user-panel--notification">
@@ -47,7 +47,7 @@ export default {
     data(){
         return {
             username: '',
-            level: '',
+            level: 100,
             experience: '',
             gold: '',
             health: '',
@@ -66,13 +66,15 @@ export default {
     methods: {
         updatePanel: function(){
             this.username = localStorage.getItem('username')
+            let self = this
             axios.get(this.$apiUrl + '/playerstat/', this.$auth.getTokenHeader())
             .then(response =>{
-                this.level = response.data.level
-                this.experience = reponse.data.experience
-                this.gold = response.data.gold
-                this.health = response.data.health
-                this.energy = response.data.energy
+                this.level = response.data[0].level
+                this.experience = response.data[0].experience
+                this.gold = response.data[0].gold
+                this.health = response.data[0].health
+                this.energy = response.data[0].energy
+        
             })
             .catch(e => {
                 
