@@ -8,7 +8,7 @@ router.get('/:id', account_controller.view_account);
 router.post('/', account_controller.add_account);
 router.put('/edit/:username/', account_controller.edit_account);
 router.post('/login/', account_controller.login)
-router.get('/online/', account_controller.get_count_users_online);
+router.get('/online/all', account_controller.get_count_users_online);
 router.put('/online/', account_controller.update_last_online);
 
 module.exports = router;
