@@ -8,28 +8,59 @@
             <div class="nav__right">
                 <router-link to="/roadmap" tag="a">Roadmap</router-link>
                 <router-link to="/rankings" tag="a">Rankings</router-link>
-                <router-link to="/users" tag="a">0 Online</router-link>
+                <router-link to="/users" tag="a">{{playersOnline}} Online</router-link>
                 <a @click='logout()'>Logout</a>
                 <router-link to="/explore" tag="button" class="nav__button">Explore</router-link>
             </div>
         </header>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
     data(){
         return {
-
+            playersOnline: 0
         }
     },
     created(){
-
+        this.playersOnline = this.getOnlinePlayerCount()
+    },
+        // WATCH THESE VARIABLES FOR CHANGES
+    watch: {
+      // ON ROUTE CHANGE HIDE MENUS
+      '$route': function () {
+        this.getOnlinePlayerCount()
+        this.updateLastOnline()
+      },
     },
     methods: {
         logout: function(){
             localStorage.removeItem('token')
             localStorage.removeItem('username')
             this.$router.push('/')
+        },
+        getOnlinePlayerCount(){
+            axios.get(this.$apiUrl + '/account/online/all')
+            .then(response =>{
+                this.playersOnline = response.data["COUNT(*)"]
+            })
+            .catch(e => {
+                
+            })
+        },
+        updateLastOnline(){
+            axios.put(this.$apiUrl + '/account/online', {
+                username    : localStorage.getItem('username'),
+            })
+            .then(response =>{
+                
+            })
+            .catch(e => {
+                
+            })
         }
-    }
+    },
+
 }
 </script>
