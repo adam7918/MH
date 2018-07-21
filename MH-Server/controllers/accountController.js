@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const jwt = require('../routes/jwtHandler');
+const token = require('../routes/jwtHandler');
 
 exports.view_accounts = function (req, res) {
     //todo: error handling
