@@ -58,7 +58,9 @@ export default {
                 
             })
             .catch(e => {
-                
+                if(e.response.status == 403 || e.response.status == 401){
+                    this.logout()
+                }
             })
         }
     },
