@@ -4,12 +4,12 @@ const account_controller = require('../controllers/accountController');// Load c
 var VerifyToken = require('./jwtHandler') 
 
 // Route all paths to right controller
-router.get('/', account_controller.view_accounts);
-router.get('/:id', account_controller.view_account);
+router.get('/', VerifyToken, account_controller.view_accounts);
+router.get('/:id', VerifyToken, account_controller.view_account);
 router.post('/', account_controller.add_account);
-router.put('/edit/:username/', account_controller.edit_account);
+router.put('/edit/:username/', VerifyToken, account_controller.edit_account);
 router.post('/login/', account_controller.login)
 router.get('/online/all', VerifyToken, account_controller.get_count_users_online);
-router.put('/online/', account_controller.update_last_online);
+router.put('/online/', VerifyToken, account_controller.update_last_online);
 
 module.exports = router;
