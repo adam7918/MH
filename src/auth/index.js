@@ -12,4 +12,13 @@ checkAuth(){
     }
     return authorized
 },
+
+getTokenHeader(){
+    return  {
+        headers: {
+          'Content-type' : 'application/json',
+          'token': localStorage.getItem('id_token')
+        }
+      }
+}
 }

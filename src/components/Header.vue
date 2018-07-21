@@ -41,7 +41,7 @@ export default {
             this.$router.push('/')
         },
         getOnlinePlayerCount(){
-            axios.get(this.$apiUrl + '/account/online/all')
+            axios.get(this.$apiUrl + '/account/online/all'), this.$auth.getTokenHeader()
             .then(response =>{
                 this.playersOnline = response.data["COUNT(*)"]
             })
@@ -52,7 +52,7 @@ export default {
         updateLastOnline(){
             axios.put(this.$apiUrl + '/account/online', {
                 username    : localStorage.getItem('username'),
-            })
+            }, this.$auth.getTokenHeader())
             .then(response =>{
                 
             })
