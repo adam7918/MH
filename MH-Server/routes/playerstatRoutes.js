@@ -4,6 +4,6 @@ const playerstat_controller = require('../controllers/playerstatController');// 
 var VerifyToken = require('./jwtHandler') 
 
 // Route all paths to right controller
-router.get('/:id', playerstat_controller.view_playerstats_by_id);
+router.get('/:id', VerifyToken, playerstat_controller.view_playerstats_by_id);
 
 module.exports = router;
