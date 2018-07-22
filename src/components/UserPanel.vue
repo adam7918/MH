@@ -4,7 +4,7 @@
         </article>
         <article class="user-panel">
             <div class="user-panel__left">
-                <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />
+                <router-link to="/profile" tag="img" src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg"></router-link>
                 <div class="user-panel__user">
                     <div class="user-panel__username">
                         <router-link to="/profile" tag="p">Lvl {{level}}. {{username}}</router-link>
@@ -47,7 +47,7 @@ export default {
     data(){
         return {
             username: '',
-            level: 100,
+            level: '',
             experience: '',
             gold: '',
             health: '',

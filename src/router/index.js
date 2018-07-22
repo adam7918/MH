@@ -69,7 +69,7 @@ export default new Router({
         header: Header,
         chat: Chat,
         userpanel: UserPanel,
-        footer: Footer
+        footer: Footer,
       }
     },
     {
@@ -143,6 +143,17 @@ export default new Router({
       name:'Rankings',
       components: {
         default: RankingPage,
+        header: Header,
+        chat: Chat,
+        userpanel: UserPanel,
+        footer: Footer
+      }
+    },
+    {
+      path:'/profile',
+      name:'Profile',
+      components: {
+        default: ProfilePage,
         header: Header,
         chat: Chat,
         userpanel: UserPanel,

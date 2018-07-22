@@ -295,6 +295,7 @@ button:focus, button:active {
 .user-panel__left > img {
     margin-right: 20px;
     height: 80px;
+    cursor:pointer;
     width: 80px;
 }
 
@@ -414,7 +415,7 @@ button:focus, button:active {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 110px;
     text-align: center;
 }
 
