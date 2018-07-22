@@ -4,15 +4,12 @@
             <div class="navbar-items">
                 <ul>
                     <li class="navbar-items--active">
-                        <p>Overview</p>
-                    </li>
-                    <li>
-                        <p>PvP</p>
+                        <p>{{profileUsername}}</p>
                     </li>
                 </ul>
             </div>
         </div>
-        <div style="height: 70vh"></div>
+        <div class="placeholderdiv">Profiles - Coming soon.</div>
     </main>
 </template>
 <script>
@@ -21,27 +18,19 @@ import axios from 'axios'
 export default {
     data() {
       return {
-        // User login details
-        loginUsername: '',
-        loginPassword: '',
-
-        // User registration details
-        registerUsername: '',
-        registerEmail: '',
-        registerPassword: '',
-
-        // Contains error message regarded login/registration status
-        formErrorMessage: '',
-
-        registrationSuccessMessage: '',
-
-        // False = Login, True = Registering
-        registerMode: false,
+          profileUsername: ''
+          
       }
     },
     created() {
         if(!this.$auth.checkAuth()){
             this.$router.push('/')
+        }
+
+        this.profileUsername = this.$route.params.username;
+
+        if(!this.profileUsername){
+            this.profileUsername = localStorage.getItem('username')
         }
     },
     

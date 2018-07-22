@@ -9,7 +9,7 @@
                 </ul>
             </div>
         </div>
-        <div class="placeholderdiv">Coming soon.</div>
+        <div class="placeholderdiv">Overview - Coming soon.</div>
     </main>
 </template>
 <script>
