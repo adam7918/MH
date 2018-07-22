@@ -30,6 +30,18 @@ exports.view_account = function (req, res) {
     });
 };
 
+exports.get_details_users_online = function (req, res) {
+    pool.query("SELECT a.username, a.last_online, p.`level` FROM account a INNER JOIN player_stats p ON a.username = p.username WHERE last_online > (now() - interval 30 minute)", function (err, row) {
+        if (err) {
+            res.status(400).json({ error: err });
+        } else if (row.length == 0) {
+            res.status(404).json({ error: "No users online." });
+        } else {
+            res.status(200).json(row[0]);
+        }
+    });
+}
+
 exports.get_count_users_online = function (req, res) {
     pool.query("SELECT COUNT(*) FROM account WHERE last_online > (now() - interval 30 minute)", function (err, row) {
         if (err) {
