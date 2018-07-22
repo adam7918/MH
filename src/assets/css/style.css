@@ -23,6 +23,11 @@ button:focus, button:active {
     outline: none;
 }
 
+.content {
+    margin: 27.5px 18% 27.5px 18%;
+    min-height: 65vh;
+}
+
 .nav {
     display: flex;
     flex-direction: row;
@@ -388,7 +393,7 @@ button:focus, button:active {
 }
 
 .user-panel--gold {
-    color:	#FFD700 !important;
+    color:	#ff9600 !important;
 }
 
 .user-panel--notification {
@@ -469,5 +474,93 @@ button:focus, button:active {
     min-height: 70vh;
     margin: 0 18% 0 18%;
 }
+
+.roadmap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.roadmap__column {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.roadmap__title {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.roadmap__title > p {
+    font-size: 13px;
+    font-weight: bold;
+    padding: .3em .6em .3em;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.roadmap__feature {
+    display: flex;
+    flex-direction: column;
+    background: #141414;
+    border-radius: 4px;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+}
+
+.roadmap__feature > h2 {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.roadmap__feature > p {
+    margin-top: 0;
+    font-size: 14px;
+    color: #777;
+}
+.roadmap__title--red {
+    background: #ca452f;
+}
+
+.roadmap__title--orange {
+    background: #ff9600;
+}
+
+.roadmap__title--green {
+    background: #719E2F;
+}
+
+.roadmap-introduction {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 27.5px 0;
+}
+
+.roadmap-introduction > h2 {
+    color: #ddd;
+    margin: 0;
+}
+
+.roadmap-introduction > p {
+    color: #777;
+    margin-bottom: 0;
+}
+
+.roadmap-introduction a {
+    color: #719E2F;
+    font-weight: bolder;
+}
+
+.roadmap-introduction a:visited {
+    color: #719E2F;
+}
+
 
 
