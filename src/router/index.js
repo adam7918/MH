@@ -151,7 +151,7 @@ export default new Router({
     },
     {
       path:'/profile',
-      name:'Profile',
+      name:'My Profile',
       components: {
         default: ProfilePage,
         header: Header,
