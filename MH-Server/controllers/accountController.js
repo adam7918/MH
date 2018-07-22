@@ -31,7 +31,7 @@ exports.view_account = function (req, res) {
 };
 
 exports.get_details_users_online = function (req, res) {
-    pool.query("SELECT a.username, a.last_online, p.`level` FROM account a INNER JOIN player_stats p ON a.username = p.username WHERE last_online > (now() - interval 30 minute)", function (err, row) {
+    pool.query("SELECT a.username, a.last_online, p.`level` FROM account a INNER JOIN player_stats p ON a.username = p.username WHERE last_online > (now() - interval 30 minute) ORDER BY last_online DESC", function (err, row) {
         if (err) {
             res.status(400).json({ error: err });
         } else if (row.length == 0) {
