@@ -43,7 +43,7 @@ button:focus, button:active {
 .nav__left > input {
     margin-left: 15px;
     height: 28px;
-    width: 104px;
+    width: 110px;
     font-size: 12px;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
@@ -315,6 +315,11 @@ button:focus, button:active {
 
 .user-panel__username > p {
     margin: 0 0 0 0;
+}
+
+.user-panel__username--small {
+    font-size: 12px;
+    color: #777;
 }
 .user-panel__buttons {
     display: flex;

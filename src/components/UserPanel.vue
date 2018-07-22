@@ -7,7 +7,7 @@
                 <router-link to="/profile" tag="img" src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg"></router-link>
                 <div class="user-panel__user">
                     <div class="user-panel__username">
-                        <router-link to="/profile" tag="p">Lvl {{level}}. {{username}}</router-link>
+                        <router-link to="/profile" tag="p"><span class="user-panel__username--small">Lvl {{level}}.</span> {{username}}</router-link>
                     </div>
                     <div class="user-panel__buttons">
                         <router-link to="/mail" tag="button" class="user-panel--notification">
