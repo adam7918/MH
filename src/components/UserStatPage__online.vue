@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="content-introduction">
-            <p>There are <span class="color--white">6</span> players online.</p>
+            <p>There are <span class="color--white">{{onlineUserCount}}</span> players online.</p>
         </div>
         <div class="online-users">
            <div class="online-users-panel">
@@ -46,8 +46,37 @@
                     <p>Last active 23 minutes ago</p>
                 </div>
             </div>
-          
-            
         </div>
     </div>
 </template>
+<script>
+import axios from 'axios'
+
+export default {
+    data(){
+        return {
+            onlineUsers: [],
+            onlineUserCount: 0,
+        }
+    },
+    created(){
+        this.getOnlineUsers()
+    },
+ 
+    methods: {
+        getOnlineUsers: function(){
+            axios.get(this.$apiUrl + '/account/online/all/detailed', this.$auth.getTokenHeader())
+            .then(response =>{
+                var test = response.data
+                console.log(test)
+                this.onlineUserCount = response.data.size()
+            })
+            .catch(e => {
+
+            })
+            
+        }
+        
+    }
+}
+</script>

@@ -37,7 +37,7 @@ exports.get_details_users_online = function (req, res) {
         } else if (row.length == 0) {
             res.status(404).json({ error: "No users online." });
         } else {
-            res.status(200).json(row[0]);
+            res.status(200).json(row);
         }
     });
 }
