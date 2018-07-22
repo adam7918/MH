@@ -76,7 +76,7 @@ exports.add_account = function (req, res) {
                             })
                         } else { 
                             // ADD PLAYER STATS BLOCK
-                            const query2 = "INSERT INTO player_stats (username, level, experience, gold, health, energy) VALUES  (?, 1, 0, 0, 100, 5)";
+                            const query2 = "INSERT INTO player_stats (username, level, experience, gold, rubies, health, energy) VALUES  (?, 1, 0, 0, 0, 100, 5)";
                             connection.query(query2, req.body.username, function (err, row) {
 
                                 if (err) {

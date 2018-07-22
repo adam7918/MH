@@ -397,6 +397,10 @@ button:focus, button:active {
     color:	#ff9600 !important;
 }
 
+.user-panel--red {
+    color: red !important;
+}
+
 .user-panel--notification {
     background:#719E2F !important;
 }

@@ -12,6 +12,7 @@ CREATE TABLE `player_stats` (
 	`level` int(100) ,
 	`experience` int(0),
 	`gold` int(0),
+	`rubies` int(0),
 	`health` int(0),
 	`energy` int(0),
 	PRIMARY KEY (`username`)

@@ -29,12 +29,16 @@
                     <p>Energy</p>
                 </div>
                 <div class="user-panel__stat">
+                    <p>{{experience}}</p>
+                    <p>Experience</p>
+                </div>
+                <div class="user-panel__stat">
                     <p class="user-panel--gold">{{gold}}</p>
                     <p>Gold</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p>{{experience}}</p>
-                    <p>Experience</p>
+                    <p class="user-panel--red">{{rubies}}</p>
+                    <p>Rubies</p>
                 </div>
             </div>
         </article>
@@ -50,6 +54,7 @@ export default {
             level: '',
             experience: '',
             gold: '',
+            rubies: '',
             health: '',
             energy: ''
         }
@@ -74,6 +79,7 @@ export default {
                 this.gold = response.data[0].gold
                 this.health = response.data[0].health
                 this.energy = response.data[0].energy
+                this.rubies = response.data[0].rubies
         
             })
             .catch(e => {
