@@ -34,7 +34,7 @@ export default {
     },
     data() {
       return {
-          activeTab: 1,
+          activeTab: 2,
       }
     },
     created() {
