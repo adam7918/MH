@@ -22,17 +22,27 @@ export default {
           
       }
     },
+    watch: {
+      '$route': function () {
+        this.getProfile()
+      },
+    },
     created() {
         if(!this.$auth.checkAuth()){
             this.$router.push('/')
         }
 
+        this.getProfile()
+    },
+    methods: {
+        getProfile: function(){
         this.profileUsername = this.$route.params.username;
 
         if(!this.profileUsername){
             this.profileUsername = localStorage.getItem('username')
         }
-    },
+        }
+    }
     
     
   

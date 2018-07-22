@@ -2,8 +2,8 @@
         <header class="nav">
             <div class="nav__left">
                 <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
-                <input type="text" placeholder="Enter a username...">
-                <i class="fas fa-search"></i>
+                <input v-model="searchQuery" type="text" placeholder="Enter a username..." v-on:keydown="search">
+                <i class="fas fa-search" @click="search({key: 'Enter'})"></i>
             </div>
             <div class="nav__right">
                 <router-link to="/users" tag="a">{{playersOnline}} Online</router-link>
@@ -19,7 +19,8 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            playersOnline: 0
+            playersOnline: 0,
+            searchQuery: ''
         }
     },
     created(){
@@ -40,7 +41,7 @@ export default {
             localStorage.removeItem('username')
             this.$router.push('/')
         },
-        getOnlinePlayerCount(){
+        getOnlinePlayerCount: function(){
             axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
             .then(response =>{
                 this.playersOnline = response.data["COUNT(*)"]
@@ -49,7 +50,7 @@ export default {
                 
             })
         },
-        updateLastOnline(){
+        updateLastOnline: function(){
             axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
             .then(response =>{
                 
@@ -59,7 +60,15 @@ export default {
                     this.logout()
                 }
             })
-        }
+        },
+        search: function (e){
+             if (e.key == "Enter") {
+                var profileToGo = this.searchQuery.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
+                this.$router.push('/profile/' + profileToGo)
+                this.searchQuery = ''
+                e.preventDefault()
+            }
+        },
     },
 
 }

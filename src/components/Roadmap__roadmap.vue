@@ -1,7 +1,7 @@
 <template>
     <div class="content">
-        <div class="roadmap-introduction">
-            <p>This is our roadmap for upcoming features. Visit our discord for more discussion: <a href="https://discord.gg/nxg5bGw" target="_blank">Here</a></p>
+        <div class="content-introduction">
+            <p>This is our roadmap for upcoming features. Visit our  <a href="https://discord.gg/nxg5bGw" target="_blank">discord</a> to join in on the discussion.</p>
         </div>
         <div class="roadmap">
             <div class="roadmap__column">
