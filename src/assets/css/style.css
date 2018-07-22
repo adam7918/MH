@@ -571,5 +571,71 @@ button:focus, button:active {
     color: #ce523d;
 }
 
+/* online users */
+.online-users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: -10px;
+}
+
+.online-users-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    background: #333;
+    margin: 6px;
+    flex: 1;
+    flex-basis: 230px;
+    flex-grow: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.online-users-panel:hover {
+    background: #393939;
+}
+
+.online-users-panel img {
+    height: 40px;
+    width: 40px;
+}
+
+.online-users-panel__text {
+    display:flex;
+    flex-direction: column;
+    margin: 0 10px 0 10px;
+    justify-content: center;
+    height: 100%;
+}
+
+.online-users-panel__text h2 {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0;
+}
+
+.online-users-panel--level {
+    font-size: 13px;
+    color: #777;
+}
+
+.online-users-panel__text p {
+    margin: 2px 0 0 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.color--white {
+    color: #fff;
+}
+
+
 
 
