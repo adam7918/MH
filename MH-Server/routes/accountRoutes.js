@@ -4,7 +4,7 @@ const account_controller = require('../controllers/accountController');// Load c
 var VerifyToken = require('./jwtHandler') 
 
 // Route all paths to right controller
-router.get('/', account_controller.view_accounts);
+router.get('/', VerifyToken, account_controller.view_accounts);
 router.get('/:id', VerifyToken, account_controller.view_account);
 router.post('/', account_controller.add_account);
 router.put('/edit/:username/', VerifyToken, account_controller.edit_account);
