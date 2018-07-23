@@ -25,14 +25,12 @@ export default {
     },
     created(){
         this.getOnlinePlayerCount()
-        //this.updateLastOnline()
+        this.updateLastOnline()
     },
-        // WATCH THESE VARIABLES FOR CHANGES
     watch: {
-      // ON ROUTE CHANGE HIDE MENUS
       '$route': function () {
         this.getOnlinePlayerCount()
-        //this.updateLastOnline()
+        this.updateLastOnline()
       },
     },
     methods: {
@@ -50,7 +48,7 @@ export default {
                 
             })
         },
-        /* updateLastOnline: function(){
+        updateLastOnline: function(){
             axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
             .then(response =>{
                 
@@ -60,7 +58,7 @@ export default {
                     this.logout()
                 }
             }) 
-        },*/    
+        },    
         search: function (e){
              if (e.key == "Enter") {
                 var profileToGo = this.searchQuery.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
