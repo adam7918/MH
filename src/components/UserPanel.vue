@@ -10,11 +10,11 @@
                         <router-link to="/profile" tag="p"><span class="user-panel__username--small">Lvl {{level}}.</span> {{username}}</router-link>
                     </div>
                     <div class="user-panel__buttons">
-                        <router-link to="/mail" tag="button" class="user-panel--notification">
-                            <i class="fas fa-envelope user-panel--notification"></i> Mail (1)
-                        </router-link>
                         <router-link to="/inventory" tag="button">
                             <i class="fas fa-box-open"></i> Inventory
+                        </router-link>
+                        <router-link to="/mail" tag="button">
+                            <i class="fas fa-envelope "></i> Mail
                         </router-link>
                         <button class="user-panel--notification" v-if="dailyGift" @click="openGift()">
                             <i class="fas fa-gift"></i> Daily Gift
