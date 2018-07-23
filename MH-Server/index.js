@@ -17,7 +17,17 @@ var limiter = new RateLimit({
   max: 10, // limit each IP to 100 requests per windowMs
   delayMs: 0, // disable delaying - full speed until the max limit is reached
   handler: function(res, req){
-          res.status(429).end("Too many requests.");
+    if (options.headers) {
+        res.setHeader('Retry-After', Math.ceil(options.windowMs / 1000));
+      }
+      res.format({
+        html: function(){
+          res.status(options.statusCode).end(options.message);
+        },
+        json: function(){
+          res.status(options.statusCode).json({ message: options.message });
+        }
+      });
   }
 });
 
