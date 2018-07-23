@@ -42,14 +42,18 @@ export default {
             
         },
         parseDate: function(last_online){
-            const start = new Date(last_online),
+                    const start = new Date(last_online),
             end   = new Date(),
             diff  = new Date(end - start),
             mins  = Math.round(diff/60/60/24);
             if(mins < 2){
                 return "Last active now"
-            } else {
+            } else if (mins < 60){
                 return "Last active " + mins + " minutes ago" 
+            } else if (mins < 1440){
+                return "Last active " + (Math.round(mins/60)) + " hours ago"
+            } else {
+                return "Last active " + Math.round(diff/1440/60/60/24) + " days ago"
             }
           
         }
