@@ -28,6 +28,7 @@ CREATE TABLE `account` (
   `email` varchar(50) NOT NULL,
   `registered_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_online` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `daily_gift` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`username`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
