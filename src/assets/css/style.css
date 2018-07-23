@@ -823,6 +823,29 @@ button:focus, button:active {
     border-left-color: #42A85F;
   }
 
+/* FAQ */
+
+.faq-question {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 5px 20px;
+    background: #141414;
+    margin-bottom: 10px;
+}
+
+.faq-question p {
+    margin-top: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.faq-question h2 {
+    font-size: 14px;
+    color: #ddd;
+}
+
+
 .color--white {
     color: #fff;
 }
@@ -831,6 +854,9 @@ button:focus, button:active {
     color: #e9900d;
 }
 
+.color--red {
+    color: red;
+}
 
 
 
