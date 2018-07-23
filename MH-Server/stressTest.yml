@@ -1,0 +1,9 @@
+config:
+  target: 'http://www.medievalhavoc.com:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 200
+scenarios:
+  - flow:
+    - get:
+        url: "/account"
