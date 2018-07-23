@@ -40,7 +40,7 @@ export default {
  
     methods: {
         getRankings: function(){
-            axios.get(this.$apiUrl + '/playerstats/rankings/level', this.$auth.getTokenHeader())
+            axios.get(this.$apiUrl + '/playerstat/ranking/level', this.$auth.getTokenHeader())
             .then(response =>{
                 this.rankedUsers = response.data
             })
