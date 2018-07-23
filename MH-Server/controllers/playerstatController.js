@@ -6,7 +6,7 @@ const config = require('../config');
 const token = require('../routes/jwtHandler');
 
 exports.view_own_playerstats = function (req, res) {
-    pool.query('SELECT * FROM player_stats WHERE username = ?',[req.username], function (err, rows) {
+    pool.query('SELECT p.*, a.daily_gift FROM player_stats p INNER JOIN account a ON p.username = a.username WHERE username = ?',[req.username], function (err, rows) {
         if (err) {
             res.status(400).json(err);
         }

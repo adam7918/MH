@@ -60,7 +60,7 @@ export default {
             rubies: '',
             health: '',
             energy: '',
-            dailyGift: true,
+            dailyGift: false,
         }
     },
     created(){
@@ -84,9 +84,8 @@ export default {
                 this.energy = response.data[0].energy
                 this.rubies = response.data[0].rubies
                 this.username = response.data[0].username
-                //this.dailyGift = response.data[0].daily_gift
+                this.dailyGift = response.data[0].daily_gift
                 localStorage.setItem('username', this.username)
-        
             })
             .catch(e => {
                 
