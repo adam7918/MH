@@ -19,20 +19,19 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            playersOnline: '0',
+            playersOnline: 0,
             searchQuery: ''
         }
     },
     created(){
-        //this.getOnlinePlayerCount()
+        this.getOnlinePlayerCount()
         //this.updateLastOnline()
     },
         // WATCH THESE VARIABLES FOR CHANGES
     watch: {
       // ON ROUTE CHANGE HIDE MENUS
       '$route': function () {
-          this.playersOnline = localStorage.getItem('players_online')
-        //this.getOnlinePlayerCount()
+        this.getOnlinePlayerCount()
         //this.updateLastOnline()
       },
     },
@@ -42,15 +41,15 @@ export default {
             localStorage.removeItem('username')
             this.$router.push('/')
         },
-        /* getOnlinePlayerCount: function(){
+        getOnlinePlayerCount: function(){
             axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
             .then(response =>{
                 this.playersOnline = response.data["COUNT(*)"]
             })
             .catch(e => {
                 
-            }) 
-        }, */
+            })
+        },
         /* updateLastOnline: function(){
             axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
             .then(response =>{
@@ -61,7 +60,7 @@ export default {
                     this.logout()
                 }
             }) 
-        }, */
+        },*/
         search: function (e){
              if (e.key == "Enter") {
                 var profileToGo = this.searchQuery.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
