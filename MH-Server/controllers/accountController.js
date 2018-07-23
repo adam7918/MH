@@ -59,7 +59,7 @@ exports.update_last_online = function (req, res) {
         if (err) {
             res.status(400).json({ error: err });
         } else {
-            res.status(200);
+            res.status(200).send('Online status updated!');
         }
     });
 }
