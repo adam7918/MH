@@ -9,6 +9,13 @@ const logger = require('morgan');   // Morgan (logging)
 const config = require('./config'); // Global configuration file
 const db = require('./database');   // Database file
 require('appmetrics-dash').monitor();
+var RateLimit = require('express-rate-limit');
+  
+var limiter = new RateLimit({
+  windowMs: 15*60*1000, // 15 minutes
+  max: 10, // limit each IP to 100 requests per windowMs
+  delayMs: 0 // disable delaying - full speed until the max limit is reached
+});
 
 loadModules();
 var server = app.listen(config.app_port, function (){
@@ -17,6 +24,7 @@ var server = app.listen(config.app_port, function (){
 
 module.exports = app;
 function loadModules() {
+    app.use(limiter);
     app.use(logger('dev'));
     app.use(bodyParser.urlencoded({
         extended: true
