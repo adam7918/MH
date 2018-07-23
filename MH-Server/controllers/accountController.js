@@ -7,7 +7,7 @@ const token = require('../routes/jwtHandler');
 
 exports.view_accounts = function (req, res) {
     //todo: error handling
-    pool.query('SELECT a.last_online, p.`level`, p.username FROM account a INNER JOIN player_stats ON a.username = p.username', function (err, rows) {
+    pool.query('SELECT a.last_online, p.`level`, p.username FROM account a INNER JOIN player_stats p ON a.username = p.username', function (err, rows) {
         if (err) {
             res.status(400).json(err);
         }
