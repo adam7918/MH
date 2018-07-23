@@ -37,29 +37,20 @@ new Vue({
         .catch(e => {
         })
       },
-      getOnlinePlayerCount: function(){
-        Axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
-        .then(response =>{
-            localStorage.setItem('players_online', response.data["COUNT(*)"])
-        })
-        .catch(e => {
-
-        }) 
-      }
+      
     },
     mounted: function () {
-      this.updateOnlineStatus();
-      this.getOnlinePlayerCount();
+      //this.updateOnlineStatus();
 
-      this.interval = setInterval(function () {
+      /*this.interval = setInterval(function () {
         this.updateOnlineStatus();
         this.getOnlinePlayerCount();
-      }.bind(this), 30000); 
+      }.bind(this), 30000); */
     },
 
-   beforeDestroy: function(){
+  /* beforeDestroy: function(){
   clearInterval(this.interval);
-  }
+  }*/
   })
 
 

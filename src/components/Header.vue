@@ -60,7 +60,7 @@ export default {
                     this.logout()
                 }
             }) 
-        },*/
+        },*/    
         search: function (e){
              if (e.key == "Enter") {
                 var profileToGo = this.searchQuery.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
