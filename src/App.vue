@@ -5,6 +5,7 @@
       <router-view />
       <router-view name="chat"/>
       <router-view name="footer"/>
+      <notifications group="notifications" classes="mh-notification" position="bottom right" />
   </div>
 </template>
 

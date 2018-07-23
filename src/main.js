@@ -8,8 +8,9 @@ import './assets/css/fontawesome.css'
 import Axios from 'axios'
 import Auth from './auth'
 import VueAnalytics from 'vue-analytics'
+import Notifications from 'vue-notification'
 
-
+Vue.use(Notifications)
 Vue.use(VueAnalytics, {
   id: 'UA-47027871-5'
 })

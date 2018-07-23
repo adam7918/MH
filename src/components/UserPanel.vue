@@ -16,6 +16,9 @@
                         <router-link to="/inventory" tag="button">
                             <i class="fas fa-box-open"></i> Inventory
                         </router-link>
+                        <button class="user-panel--notification" v-if="dailyGift" @click="openGift()">
+                            <i class="fas fa-gift"></i> Daily Gift
+                        </button>
                     </div>
                 </div>
             </div>
@@ -56,7 +59,8 @@ export default {
             gold: '',
             rubies: '',
             health: '',
-            energy: ''
+            energy: '',
+            dailyGift: true,
         }
     },
     created(){
@@ -80,12 +84,22 @@ export default {
                 this.energy = response.data[0].energy
                 this.rubies = response.data[0].rubies
                 this.username = response.data[0].username
+                //this.dailyGift = response.data[0].daily_gift
                 localStorage.setItem('username', this.username)
         
             })
             .catch(e => {
                 
             })
+        },
+        openGift: function(){
+        this.$notify({
+            group: 'notifications',
+            title: 'Daily Gift Claimed!',
+            type: 'success',
+            text: 'You have received: '
+        });
+
         }
         
     }
