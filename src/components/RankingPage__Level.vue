@@ -1,5 +1,11 @@
 <template>
     <div class="content">
+        <div class="ranking-filters-container">
+            <p>Filters</p>
+            <div class="ranking-filters-buttons">
+                <p class="ranking-filters-buttons-active">Level</p>
+            </div>
+        </div>
         <div class="ranking-container">
             <div class="ranking-table-top">
                 Level
@@ -10,7 +16,7 @@
                 <p>Level</p>
                 <p>Last Active</p>
             </div>
-           <div v-for="(user,index) in rankedUsers" :key="user.username" class="ranking-table-row">
+           <router-link :to="{ name: 'Profile', params: { username: user.username}}" tag="div" v-for="(user,index) in rankedUsers" :key="user.username" class="ranking-table-row">
                <p>#{{(index + 1)}}</p>
                <div class="ranking-table-user">
                    <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />  
@@ -21,7 +27,7 @@
                </div>
                <p class="ranking-table-level">{{user.level}}</p>
                <p>{{parseDate(user.last_online)}}</p>
-           </div>
+           </router-link>
         </div>
     </div>
 </template>

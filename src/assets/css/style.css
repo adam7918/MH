@@ -636,9 +636,10 @@ button:focus, button:active {
 
 .ranking-container {
     background: #333;
-    border-radius: 4px;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 75px;
 }
 
 .ranking-table-top {
@@ -659,7 +660,7 @@ button:focus, button:active {
     font-weight: 400;
     text-align: center;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     border-top: 1px solid #444;;
     border-bottom: 1px solid #444;;
 }
@@ -716,8 +717,8 @@ button:focus, button:active {
 }
 
 .ranking-table-row:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     border-bottom: 0;   
 }
 
@@ -757,8 +758,54 @@ button:focus, button:active {
     color: #777;
 }
 
+.ranking-filters-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 27.5px;
+    margin-bottom: 10px;
+}
+
+.ranking-filters-container > p {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #777;
+}
+
+.ranking-filters-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.ranking-filters-buttons-active {
+    color: #fff !important;
+    border-color: #ca452f !important;
+    background: #ca452f;
+}
+
+.ranking-filters-buttons > p {
+    cursor: pointer;
+    width: auto;
+    height: 32px;
+    line-height: 33px;
+    padding: 0 14px;
+    margin: 0 6px 6px 0;
+    border: 1px solid #555;
+    color: #aaa;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out;
+}
+
 .color--white {
     color: #fff;
+}
+
+.color--gold {
+    color: #e9900d;
 }
 
 
