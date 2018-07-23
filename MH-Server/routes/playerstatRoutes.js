@@ -6,7 +6,7 @@ var VerifyToken = require('./jwtHandler')
 // Route all paths to right controller
 router.get('/', VerifyToken, playerstat_controller.view_own_playerstats);
 router.get('/ranking/level', VerifyToken, playerstat_controller.view_rankings_for_level);
-router.get('/ranking/gold', VerifyTolen, playerstat_controller.view_rankings_for_gold);
-router.get('/ranking/ruby', VerifyTolen, playerstat_controller.view_rankings_for_rubies);
+router.get('/ranking/gold', VerifyToken, playerstat_controller.view_rankings_for_gold);
+router.get('/ranking/ruby', VerifyToken, playerstat_controller.view_rankings_for_rubies);
 
 module.exports = router;
