@@ -88,7 +88,10 @@ export default {
                 localStorage.setItem('username', this.username)
             })
             .catch(e => {
-                
+                if(e.response.status == 429){
+                    console.log('test')
+                    this.logout()
+                }
             })
         },
         openGift: function(){
@@ -99,6 +102,11 @@ export default {
             text: 'You have received: '
         });
 
+        },
+        logout: function(){
+            localStorage.removeItem('username')
+            localStorage.removeItem('token')
+            this.$router.push('/')
         }
         
     }

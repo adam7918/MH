@@ -54,9 +54,10 @@ export default {
                 
             })
             .catch(e => {
-                if(e.response.status == 403 || e.response.status == 401 ){
+                if(e.response.status == 403 || e.response.status == 401 || e.response.status == 429 ){
                     this.logout()
                 }
+
             }) 
         },    
         search: function (e){
