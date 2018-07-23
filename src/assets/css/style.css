@@ -762,7 +762,6 @@ button:focus, button:active {
     display: flex;
     flex-direction: column;
     padding-bottom: 27.5px;
-    margin-bottom: 10px;
 }
 
 .ranking-filters-container > p {
