@@ -30,11 +30,11 @@ export default {
     },
  
     methods: {
-        getOnlineUsers: function(){
+        getAllUsers: function(){
             axios.get(this.$apiUrl + '/account/', this.$auth.getTokenHeader())
             .then(response =>{
-                this.onlineUserCount = response.data.length
-                this.onlineUsers = response.data
+                this.allUserCount = response.data.length
+                this.allUsers = response.data
             })
             .catch(e => {
 
