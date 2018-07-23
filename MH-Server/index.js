@@ -15,8 +15,18 @@ var limiter = new RateLimit({
   windowMs: 15*60*1000, // 15 minutes
   max: 10, // limit each IP to 100 requests per windowMs
   delayMs: 0, // disable delaying - full speed until the max limit is reached
-  onLimitReached: function(res, req, options){
-        res.status(429).json({ error: "Too many requests. Try again in 15 minutes." });
+  handler: function(res, req, options){
+    if (options.headers) {
+        res.setHeader('Retry-After', Math.ceil(options.windowMs / 1000));
+      }
+      res.format({
+        html: function(){
+          res.status(options.statusCode).end(options.message);
+        },
+        json: function(){
+          res.status(options.statusCode).json({ message: options.message });
+        }
+      });
   }
 });
 
