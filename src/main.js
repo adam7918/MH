@@ -27,8 +27,43 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
-})
+  template: '<App/>',
+  methods: {
+      updateOnlineStatus: function () {
+        Axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
+        .then(response =>{
+
+        })
+        .catch(e => {
+        })
+      },
+      getOnlinePlayerCount: function(){
+        Axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
+        .then(response =>{
+            localStorage.setItem('players_online', response.data["COUNT(*)"])
+        })
+        .catch(e => {
+
+        }) 
+      }
+    },
+    mounted: function () {
+      this.updateOnlineStatus();
+      this.getOnlinePlayerCount();
+
+      this.interval = setInterval(function () {
+        this.updateOnlineStatus();
+        this.getOnlinePlayerCount();
+      }.bind(this), 30000); 
+    },
+
+   beforeDestroy: function(){
+  clearInterval(this.interval);
+  }
+  })
+
+
+
 
 router.beforeEach((to, from, next) => {
   document.title = `MH - ${to.name}`

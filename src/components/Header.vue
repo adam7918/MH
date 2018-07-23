@@ -19,20 +19,21 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            playersOnline: 0,
+            playersOnline: '0',
             searchQuery: ''
         }
     },
     created(){
-        this.getOnlinePlayerCount()
-        this.updateLastOnline()
+        //this.getOnlinePlayerCount()
+        //this.updateLastOnline()
     },
         // WATCH THESE VARIABLES FOR CHANGES
     watch: {
       // ON ROUTE CHANGE HIDE MENUS
       '$route': function () {
-        this.getOnlinePlayerCount()
-        this.updateLastOnline()
+          this.playersOnline = localStorage.getItem('players_online')
+        //this.getOnlinePlayerCount()
+        //this.updateLastOnline()
       },
     },
     methods: {
@@ -41,26 +42,26 @@ export default {
             localStorage.removeItem('username')
             this.$router.push('/')
         },
-        getOnlinePlayerCount: function(){
+        /* getOnlinePlayerCount: function(){
             axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
             .then(response =>{
                 this.playersOnline = response.data["COUNT(*)"]
             })
             .catch(e => {
                 
-            })
-        },
-        updateLastOnline: function(){
+            }) 
+        }, */
+        /* updateLastOnline: function(){
             axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
             .then(response =>{
                 
             })
             .catch(e => {
-                if(e.response.status == 403 || e.response.status == 401){
+                if(e.response.status == 403 || e.response.status == 401 ){
                     this.logout()
                 }
-            })
-        },
+            }) 
+        }, */
         search: function (e){
              if (e.key == "Enter") {
                 var profileToGo = this.searchQuery.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
