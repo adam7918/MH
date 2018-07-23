@@ -460,18 +460,66 @@ button:focus, button:active {
     position: fixed;
     bottom: 0;
     right: 30px;
-    padding: 12px;
-    background: #ca452f;
-    color: #fff;
-    font-size: 16px;
+    width: 250px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.3);
+}
 
-    width: 170px;
-    cursor: pointer;
-    font-weight: 600;
-    text-align: center;
+.chat-tab-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #719E2F;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
 }
+
+.chat-tab-header p {
+    margin: 0;
+    padding: 10px;
+}
+
+.chat-message-panel {
+    height: 300px;
+    display: flex;
+    background: #333;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat-input {
+    display: flex;
+    flex-direction: row;
+    background: #494949;
+    padding: 10px;
+}
+
+.chat-input input {
+    width: 100%;
+    height: 25px;
+    padding: 0 5px;
+    background: grey;
+    border: 0;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}   
+
+.chat-input input:focus {
+    box-shadow: 0 0 5px rgba(113, 158 , 47, 1);
+    border: 1px solid rgba(113, 158 , 47, 1);
+}
+
+.chat
+
 
 .placeholderdiv {
     color: #777;
@@ -799,7 +847,52 @@ button:focus, button:active {
     border-radius: 3px;
     transition: all 0.15s ease-in-out;
 }
-
+/* notifications */ 
+ 
+.mh-notification { 
+    padding: 10px; 
+    margin: 0 5px 5px; 
+    font-size: 18px; 
+    color: #ffffff; 
+    background: #44A4FC; 
+    border-left: 5px solid #187FE7; 
+  } 
+  .mh-notification.warn { 
+    background: #ffb648; 
+    border-left-color: #f48a06; 
+  } 
+  .mh-notification.error { 
+    background: #E54D42; 
+    border-left-color: #B82E24; 
+  } 
+  .mh-notification.success { 
+    background: #68CD86; 
+    border-left-color: #42A85F; 
+  } 
+ 
+/* FAQ */ 
+ 
+.faq-question { 
+    display: flex; 
+    flex-direction: column; 
+    border-radius: 4px; 
+    padding: 5px 20px; 
+    background: #141414; 
+    margin-bottom: 10px; 
+} 
+ 
+.faq-question p { 
+    margin-top: 0; 
+    font-size: 14px; 
+    color: #777; 
+} 
+ 
+.faq-question h2 { 
+    font-size: 14px; 
+    color: #ddd; 
+} 
+ 
+ 
 .color--white {
     color: #fff;
 }
@@ -807,6 +900,10 @@ button:focus, button:active {
 .color--gold {
     color: #e9900d;
 }
+
+.color--red { 
+    color: red; 
+} 
 
 
 

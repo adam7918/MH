@@ -1,16 +1,21 @@
 <template>
     <div class="chat-tab">
-        <form @submit.prevent="sendMessage">
-            <div class="gorm-group">
-                <label for="user">User:</label>
-                <input type="text" v-model="user" class="form-control">
+        <div class="chat-tab-header" @click="chatOpen = !chatOpen">
+            <p>World Chat</p>
+            <p>3 Online</p>
+        </div>
+        <div v-if="chatOpen" class="chat-message-panel">
+            <div class="chat-messages-container">
+                <div class="chat-messages" v-for="(msg, index) in messages" :key="index">
+                    <p><span class="user">{{ msg.user }}:</span>{{ msg.message }}</p>
+                </div>
             </div>
-            <div class="gorm-group pb-3">
-                <label for="message">Message:</label>
-                <input type="text" v-model="message" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Send</button>
-        </form>
+            <form @submit.prevent="sendMessage">
+                    <div class="chat-input">
+                        <input type="text" v-model="message">
+                    </div>
+            </form>
+        </div>
     </div>
 </template>
 <script>
@@ -21,7 +26,8 @@ export default {
             user: '',
             message: '',
             messages: [],
-            socket : io('http://www.medievalhavoc.com:3000')
+            socket : io('http://www.medievalhavoc.com:3000'),
+            chatOpen:false,
         }
     },
     methods: {
@@ -29,7 +35,7 @@ export default {
             e.preventDefault();
             
             this.socket.emit('SEND_MESSAGE', {
-                user: this.user,
+                user: localStorage.getItem('username'),
                 message: this.message
             });
             this.message = ''
