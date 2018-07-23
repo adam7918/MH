@@ -11,7 +11,7 @@
                 <p>Last Active</p>
             </div>
            <div v-for="(user,index) in rankedUsers" :key="user.username" class="ranking-table-row">
-               <p>#{{index}}</p>
+               <p>#{{(index + 1)}}</p>
                <div class="ranking-table-user">
                    <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />  
                    <div class="ranking-table-user-info">
@@ -55,8 +55,12 @@ export default {
             mins  = Math.round(diff/60/60/24);
             if(mins < 2){
                 return "Last active now"
-            } else {
+            } else if (mins < 60){
                 return "Last active " + mins + " minutes ago" 
+            } else if (mins < 1440){
+                return "Last active " + (Math.round(mins/60)) + " hours ago"
+            } else {
+                return "Last active " + Math.round(diff/1440/60/60/24) + " days ago"
             }
           
         }
