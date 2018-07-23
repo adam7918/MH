@@ -1,3 +1,15 @@
 RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^/(.*)$ http://127.0.0.1:3000/$1 [P,L]
+
+RewriteCond %{SERVER_PORT} !3001 #
+RewriteRule ^ - [E=NO_AUTH:1]
+
+Order deny,allow 
+Deny from all
+AuthType basic
+AuthName "You have to be logged in"
+AuthUserFile "/etc/httpd/conf.d/.htpasswd" #Your htpasswd path
+Require valid-user
+Allow from           env=NO_AUTH 
+Satisfy              Any
