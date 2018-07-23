@@ -70,7 +70,6 @@ export default {
     },
     methods: {
         updatePanel: function(){
-            this.username = localStorage.getItem('username')
             let self = this
             axios.get(this.$apiUrl + '/playerstat/', this.$auth.getTokenHeader())
             .then(response =>{
@@ -80,6 +79,8 @@ export default {
                 this.health = response.data[0].health
                 this.energy = response.data[0].energy
                 this.rubies = response.data[0].rubies
+                this.username = response.data[0].username
+                localStorage.setItem('username', this.username)
         
             })
             .catch(e => {
