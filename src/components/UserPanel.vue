@@ -126,18 +126,14 @@ export default {
             if(!this.loggedIn){
                 axios.get(this.$apiUrl + '/account/registered', this.$auth.getTokenHeader())
                 .then(response =>{
-                    console.log("all accounts:")
-                    console.log(response.data)
-                    this.registeredUserCount = response.data
+                    this.registeredUserCount = response.data["COUNT(*)"]
                 })
                 .catch(e => {
                 })
 
                 axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
                 .then(response =>{
-                    console.log("online accounts:")
-                    console.log(response.data)
-                    this.onlineUserCount = response.data
+                    this.onlineUserCount = response.data["COUNT(*)"]
                 })
                 .catch(e => {
                 })
