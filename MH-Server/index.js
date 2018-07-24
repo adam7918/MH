@@ -8,7 +8,7 @@ const cors = require('cors');       // Needed for front-end accessibility to the
 const logger = require('morgan');   // Morgan (logging) 
 const config = require('./config'); // Global configuration file
 const db = require('./database');   // Database file
-require('appmetrics-dash').monitor();
+// require('appmetrics-dash').monitor();
 var RateLimit = require('express-rate-limit');
 
 var limiter = new RateLimit({
