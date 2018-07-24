@@ -39,9 +39,9 @@ export default {
     },
     methods: {
         sendMessage(e) {
-            var d = new Date();
-            var timestamp = d.getHours() + ':' + d.getMinutes();
-            e.preventDefault();
+            var d = new Date()
+            var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
+            e.preventDefault()
             
             this.socket.emit('SEND_MESSAGE', {
                 user: localStorage.getItem('username'),
@@ -53,7 +53,7 @@ export default {
     },
     mounted() {
         this.socket.on('MESSAGE', (data) => {
-            this.messages = [...this.messages, data];
+            this.messages = [...this.messages, data]
             // you can also do this.messages.push(data)
             if(!this.chatOpen){
                 this.unreadMessages++
@@ -61,7 +61,7 @@ export default {
             }
         });
         this.socket.on('ONLINE_COUNT', (data) => {
-            this.onlineCount = data;
+            this.onlineCount = data
         });
     }
 }

@@ -42,8 +42,8 @@ io.on('connection', function(socket) {
     socket.on('disconnect', function() {
         // EMIT ONLINE USER COUNT
         usersOnline--
-        console.log('test======================' + usersOnline)
-        io.emit('ONLINE_COUNT', usersOnline);
+        console.log(usersOnline)
+        //io.emit('ONLINE_COUNT', usersOnline);
     });
 });
 
