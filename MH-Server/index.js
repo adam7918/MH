@@ -38,13 +38,13 @@ io.on('connection', function(socket) {
         io.emit('MESSAGE', data)
     });
     
-    // // ON SOCKET.IO DISCONNECTION
-    // socket.on('disconnect', function() {
-    //     // EMIT ONLINE USER COUNT
-    //     usersOnline--
-    //     console.log(usersOnline)
-    //     //io.emit('ONLINE_COUNT', usersOnline);
-    // });
+    // ON SOCKET.IO DISCONNECTION
+    socket.on('disconnect', function() {
+        // EMIT ONLINE USER COUNT
+        usersOnline--
+        console.log(usersOnline)
+        io.emit('ONLINE_COUNT', usersOnline);
+    });
 });
 
 /* SOCKET.IO END */
