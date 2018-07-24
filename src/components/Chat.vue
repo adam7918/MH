@@ -9,7 +9,7 @@
                 <div class="chat-message" v-for="(msg, index) in messages" :key="index">
                     <span class="chat-user">
                         <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}</router-link>
-                        <h2>12:00</h2>
+                        <h2>{{msg.timestamp}}</h2>
                     </span>
                     <p>{{ msg.message }}</p>
                 </div>
@@ -36,11 +36,14 @@ export default {
     },
     methods: {
         sendMessage(e) {
+            var d = new Date();
+            var timestamp = d.getHours() + ':' + d.getMinutes();
             e.preventDefault();
             
             this.socket.emit('SEND_MESSAGE', {
                 user: localStorage.getItem('username'),
-                message: this.message
+                message: this.message,
+                timestamp: timestamp
             });
             this.message = ''
         }
