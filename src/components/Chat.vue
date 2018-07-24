@@ -1,7 +1,7 @@
 <template>
     <div class="chat-tab">
-        <div class="chat-tab-header" @click="chatOpen = !chatOpen">
-            <p>World Chat</p>
+        <div class="chat-tab-header" @click="chatOpen = !chatOpen; chatTabTitle = 'World Chat'; unreadMessages = 0">
+            <p>{{chatTabTitle}}</p>
             <p>3 Online</p>
         </div>
         <div v-if="chatOpen" class="chat-message-panel">
@@ -32,6 +32,9 @@ export default {
             messages: [],
             socket : io('http://www.medievalhavoc.com:3000'),
             chatOpen:false,
+            chatTabTitle:'World Chat',
+            unreadMessages:0,
+
         }
     },
     methods: {
@@ -52,8 +55,10 @@ export default {
         this.socket.on('MESSAGE', (data) => {
             this.messages = [...this.messages, data];
             // you can also do this.messages.push(data)
-            var d = $('#chat-message-id');
-            d.scrollTop(d.prop("scrollHeight"));
+            if(!this.chatOpen){
+                this.unreadMessages++
+                this.chatTabTitle = this.unreadMessages + ' unread'
+            }
         });
     }
 }
