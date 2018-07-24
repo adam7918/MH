@@ -24,13 +24,13 @@ var server = app.listen(config.app_port, function (){
 
 /* SOCKET.IO BEGIN */
 const io = require('socket.io')(server);
-var usersOnline = 0;
+var connectedClients = [];
 
 // ON SOCKET.IO CONNECTION
 io.on('connection', function(socket) {
     // EMIT ONLINE USER COUNT
-    usersOnline++
-    io.emit('ONLINE_COUNT', usersOnline)
+    connectedClients.push(socket)
+    io.emit('ONLINE_COUNT', connectClients.length)
 
     // ON SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
@@ -40,10 +40,10 @@ io.on('connection', function(socket) {
     
     // ON SOCKET.IO DISCONNECTION
     socket.on('disconnect', function() {
+        var i = connectedClients.indexOf(socket);
+        connectedClients.splice(i, 1);
         // EMIT ONLINE USER COUNT
-        usersOnline--
-        console.log(usersOnline)
-        io.emit('ONLINE_COUNT', usersOnline);
+        io.emit('ONLINE_COUNT', connectedClients.length);
     });
 });
 
