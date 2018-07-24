@@ -25,15 +25,18 @@ var server = app.listen(config.app_port, function (){
 /* SOCKET.IO BEGIN */
 const io = require('socket.io')(server);
 var connectedClients = [];
+var chatMessageHistory = [];
 
 // ON SOCKET.IO CONNECTION
 io.on('connection', function(socket) {
     // EMIT ONLINE USER COUNT
     connectedClients.push(socket)
     io.emit('ONLINE_COUNT', connectedClients.length)
+    io.emit('CHAT_HISTORY', chatMessageHistory)
 
     // ON +SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
+        chatMessageHistory = [...chatMessageHistory, data]
         // EMIT THE MESSAGE RECEIVED
         io.emit('MESSAGE', data)
     });

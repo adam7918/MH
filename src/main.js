@@ -28,13 +28,17 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   data: {
-    onlineUserCount: 0
+    onlineUserCount: 0,
+    chatHistory: []
   },
   sockets:{
     connect: function(){
     },
     ONLINE_COUNT: function(data){
       this.onlineUserCount = data
+    },
+    CHAT_HISTORY: function(data){
+      this.chatHistory = data
     }
   },
   el: '#app',
