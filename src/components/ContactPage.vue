@@ -11,7 +11,7 @@
         </div>
             <div class="content">
                 <div class="content-introduction">
-                    <p>Feel free to contact us at <a href="mailto:summerfield.adam@gmail.com" target="_blank">summerfield.adam@gmail.com</a></p>
+                    <p>Feel free to contact us at <a href="mailto:example@placeholder.com" target="_blank">example@placeholder.com</a></p>
                 </div>
         </div>
     </main>
