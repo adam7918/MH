@@ -1,5 +1,5 @@
 <template>
-        <header class="nav">
+        <header class="nav" v-if="loggedIn" >
             <div class="nav__left">
                 <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
                 <input v-model="searchQuery" type="text" placeholder="Enter a username..." v-on:keydown="search">
@@ -12,6 +12,15 @@
                 <router-link to="/explore" tag="button" class="nav__button">Explore</router-link>
             </div>
         </header>
+        <header class="nav" v-else>
+            <div class="nav__left">
+                <router-link to="/" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
+            </div>
+            <div class="nav__right">
+                <router-link to="/rankings" tag="a">Rankings</router-link>
+                <router-link to="/explore" tag="button" class="nav__button">Play</router-link>
+            </div>
+        </header>
 </template>
 <script>
 import axios from 'axios'
@@ -19,14 +28,17 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            searchQuery: ''
+            searchQuery: '',
+            loggedIn:false,
         }
     },
     created(){
+        this.loggedIn = (localStorage.getItem('token'))
         this.updateLastOnline()
     },
     watch: {
       '$route': function () {
+        this.loggedIn = (localStorage.getItem('token'))
         this.updateLastOnline()
       },
     },
@@ -37,16 +49,14 @@ export default {
             this.$router.push('/')
         },
         updateLastOnline: function(){
-            axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
-            .then(response =>{
-                
-            })
-            .catch(e => {
-                if(e.response.status == 403 || e.response.status == 401 || e.response.status == 429 ){
-                    this.logout()
-                }
-
-            }) 
+            if(localStorage.getItem('token')){
+                axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
+                .then(response =>{
+                    
+                })
+                .catch(e => {
+                }) 
+            }
         },    
         search: function (e){
              if (e.key == "Enter") {

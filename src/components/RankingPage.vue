@@ -39,9 +39,6 @@ export default {
       }
     },
     created() {
-        if(!this.$auth.checkAuth()){
-            this.$router.push('/')
-        }
     },
 }
 </script>

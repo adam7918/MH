@@ -45,7 +45,7 @@ export default {
     },
     created() {
         if(!this.$auth.checkAuth()){
-            this.$router.push('/')
+            this.$router.push('/login')
         }
     },
 }

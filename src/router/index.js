@@ -18,6 +18,7 @@ import UserStatPage from '@/components/UserStatPage'
 import MailPage from '@/components/MailPage'
 import Roadmap from '@/components/Roadmap'
 import Chat from '@/components/Chat'
+import Index from '@/components/Index'
 
 Vue.use(Router)
 
@@ -25,6 +26,16 @@ export default new Router({
   routes: [
     {
       path:'/',
+      name:'Home',
+      components: {
+        default: Index,
+        header: Header,
+        userpanel: UserPanel,
+        footer: Footer
+      }
+    },
+    {
+      path:'/login',
       name:'Login',
       component: LoginPage
     },
