@@ -9,7 +9,9 @@ import Axios from 'axios'
 import Auth from './auth'
 import VueAnalytics from 'vue-analytics'
 import Notifications from 'vue-notification'
+import VueSocketio from 'vue-socket.io';
 
+Vue.use(VueSocketio, 'http://www.medievalhavoc.com:3000')
 Vue.use(Notifications)
 Vue.use(VueAnalytics, {
   id: 'UA-47027871-5'
@@ -25,6 +27,16 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
+  data: {
+    onlineUserCount: 0
+  },
+  sockets:{
+    connect: function(){
+    },
+    ONLINE_COUNT: function(data){
+      this.onlineUserCount = data
+    }
+  },
   el: '#app',
   router,
   components: { App },
@@ -40,21 +52,10 @@ new Vue({
       },
       
     },
-    mounted: function () {
-      //this.updateOnlineStatus();
+  mounted: function () {
 
-      /*this.interval = setInterval(function () {
-        this.updateOnlineStatus();
-        this.getOnlinePlayerCount();
-      }.bind(this), 30000); */
-    },
-
-  /* beforeDestroy: function(){
-  clearInterval(this.interval);
-  }*/
-  })
-
-
+  },
+})
 
 
 router.beforeEach((to, from, next) => {

@@ -22,7 +22,7 @@ export default {
     data(){
         return {
             onlineUsers: [],
-            onlineUserCount: 0,
+            onlineUserCount:0,
         }
     },
     created(){
@@ -54,6 +54,6 @@ export default {
           
         }
         
-    }
+    },
 }
 </script>

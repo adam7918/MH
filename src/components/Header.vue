@@ -6,7 +6,7 @@
                 <i class="fas fa-search" @click="search({key: 'Enter'})"></i>
             </div>
             <div class="nav__right">
-                <router-link to="/users" tag="a">{{playersOnline}} Online</router-link>
+                <router-link to="/users" tag="a">{{$root.onlineUserCount}} Online</router-link>
                 <router-link to="/rankings" tag="a">Rankings</router-link>
                 <a @click='logout()'>Logout</a>
                 <router-link to="/explore" tag="button" class="nav__button">Explore</router-link>
@@ -19,17 +19,14 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            playersOnline: 0,
             searchQuery: ''
         }
     },
     created(){
-        this.getOnlinePlayerCount()
         this.updateLastOnline()
     },
     watch: {
       '$route': function () {
-        this.getOnlinePlayerCount()
         this.updateLastOnline()
       },
     },
@@ -38,15 +35,6 @@ export default {
             localStorage.removeItem('token')
             localStorage.removeItem('username')
             this.$router.push('/')
-        },
-        getOnlinePlayerCount: function(){
-            axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
-            .then(response =>{
-                this.playersOnline = response.data["COUNT(*)"]
-            })
-            .catch(e => {
-                
-            })
         },
         updateLastOnline: function(){
             axios.put(this.$apiUrl + '/account/online',{}, this.$auth.getTokenHeader())
@@ -69,6 +57,8 @@ export default {
             }
         },
     },
+    mounted() {
+    }
 
 }
 </script>

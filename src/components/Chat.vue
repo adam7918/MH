@@ -2,7 +2,7 @@
     <div class="chat-tab">
         <div class="chat-tab-header" @click="chatOpen = !chatOpen; chatTabTitle = 'World Chat'; unreadMessages = 0">
             <p>{{chatTabTitle}}</p>
-            <p>{{onlineCount}} Online</p>
+            <p>{{$root.onlineUserCount}} Online</p>
         </div>
         <div v-if="chatOpen" class="chat-message-panel">
             <div class="chat-messages-container" id="chat-message-id">
@@ -23,19 +23,18 @@
     </div>
 </template>
 <script>
-import io from 'socket.io-client';
 export default {
     data() {
         return {
             user: '',
             message: '',
             messages: [],
-            socket : io('http://www.medievalhavoc.com:3000'),
             chatOpen:false,
             chatTabTitle:'World Chat',
             unreadMessages:0,
-            onlineCount:0,
         }
+    },
+    created(){
     },
     methods: {
         sendMessage(e) {
@@ -43,7 +42,7 @@ export default {
             var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
             e.preventDefault()
             
-            this.socket.emit('SEND_MESSAGE', {
+            this.$socket.emit('SEND_MESSAGE', {
                 user: localStorage.getItem('username'),
                 message: this.message,
                 timestamp: timestamp
@@ -52,16 +51,13 @@ export default {
         }
     },
     mounted() {
-        this.socket.on('MESSAGE', (data) => {
+        this.$socket.on('MESSAGE', (data) => {
             this.messages = [...this.messages, data]
             // you can also do this.messages.push(data)
             if(!this.chatOpen){
                 this.unreadMessages++
                 this.chatTabTitle = this.unreadMessages + ' unread'
             }
-        });
-        this.socket.on('ONLINE_COUNT', (data) => {
-            this.onlineCount = data
         });
     }
 }

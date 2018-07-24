@@ -32,17 +32,21 @@ io.on('connection', function(socket) {
     connectedClients.push(socket)
     io.emit('ONLINE_COUNT', connectedClients.length)
 
-    // ON SEND_MESSAGE RECEIVED
+    // ON +SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
         // EMIT THE MESSAGE RECEIVED
         io.emit('MESSAGE', data)
     });
-    
+
+    // ON CLIENT ROUTE CHANGE
+    socket.on('ROUTE_CHANGE', function(data) {
+        io.emit('ONLINE_COUNT', connectedClients.length);
+    });
+
     // ON SOCKET.IO DISCONNECTION
     socket.on('disconnect', function() {
         var i = connectedClients.indexOf(socket);
         connectedClients.splice(i, 1);
-        // EMIT ONLINE USER COUNT
         io.emit('ONLINE_COUNT', connectedClients.length);
     });
 });
