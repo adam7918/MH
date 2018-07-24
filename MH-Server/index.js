@@ -22,14 +22,29 @@ var server = app.listen(config.app_port, function (){
     console.log(("--- Server started on: "+ new Date().toLocaleString() +" ---").green.bold);
   });
 
+/* SOCKET.IO BEGIN */
 const io = require('socket.io')(server);
+var usersOnline = 0;
 
 io.on('connection', function(socket) {
-    console.log(socket)
+    usersOnline++
+    console.log(usersOnline)
     socket.on('SEND_MESSAGE', function(data) {
         io.emit('MESSAGE', data)
     });
+    
+    socket.on('disconnected', function() {
+        usersOnline--
+        socket.emit('ONLINE_COUNT', usersOnline);
+        console.log(usersOnline)
+    });
 });
+
+io.on('')
+
+
+
+/* SOCKET.IO END
 
 module.exports = app;
 function loadModules() {
