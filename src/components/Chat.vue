@@ -6,7 +6,7 @@
         </div>
         <div v-if="chatOpen" class="chat-message-panel">
             <div class="chat-messages-container" id="chat-message-id">
-                <div class="chat-message" v-for="(msg, index) in messages" :key="index">
+                <div class="chat-message" v-for="(msg, index) in $root.chatHistory" :key="index">
                     <span class="chat-user">
                         <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}</router-link>
                         <h2>{{msg.timestamp}}</h2>
@@ -28,15 +28,12 @@ export default {
         return {
             user: '',
             message: '',
-            messages: [],
             chatOpen:false,
             chatTabTitle:'World Chat',
             unreadMessages:0,
         }
     },
     created(){
-        this.messages = this.$root.chatHistory
-        console.log(this.$root.chatHistory)
     },
     methods: {
         sendMessage(e) {
@@ -54,8 +51,7 @@ export default {
     },
     mounted() {
         this.$socket.on('MESSAGE', (data) => {
-            this.messages = [...this.messages, data]
-            // you can also do this.messages.push(data)
+            this.$root.chatHistory = [...this.$root.chatHistory, data]
             if(!this.chatOpen){
                 this.unreadMessages++
                 this.chatTabTitle = this.unreadMessages + ' unread'
