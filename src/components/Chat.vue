@@ -1,6 +1,6 @@
 <template>
     <div class="chat-tab">
-        <div class="chat-tab-header" @click="chatOpen = !chatOpen; chatTabTitle = 'World Chat'; unreadMessages = 0">
+        <div class="chat-tab-header" @click="toggleChat()">
             <p><i class="fas fa-comment"></i> {{chatTabTitle}}</p>
             <p>{{$root.onlineUserCount}} Online</p>
         </div>
@@ -34,22 +34,7 @@ export default {
         }
     },
     created(){
-    },
-    methods: {
-        sendMessage(e) {
-            if(this.message){
-            var d = new Date()
-            var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
-            e.preventDefault()
-            
-            this.$socket.emit('SEND_MESSAGE', {
-                user: localStorage.getItem('username'),
-                message: this.message,
-                timestamp: timestamp
-            });
-            this.message = ''
-        }
-        }
+        
     },
     mounted() {
         this.$socket.on('MESSAGE', (data) => {
@@ -58,7 +43,42 @@ export default {
                 this.unreadMessages++
                 this.chatTabTitle = this.unreadMessages + ' unread'
             }
+            this.$nextTick(() => {
+                this.scrollToBottom()
+            });
+
         });
-    }
+    },
+    methods: {
+        sendMessage: function(e) {
+                if(this.message){
+                var d = new Date()
+                var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
+                e.preventDefault()
+                
+                this.$socket.emit('SEND_MESSAGE', {
+                    user: localStorage.getItem('username'),
+                    message: this.message,
+                    timestamp: timestamp
+                });
+
+                this.message = ''
+            }
+        },
+        scrollToBottom: function(){
+            var element = document.getElementById("chat-message-id");
+            element.scrollTop = element.scrollHeight;
+        },
+        toggleChat: function(){
+            this.chatOpen = !this.chatOpen
+            this.chatTabTitle = 'World Chat'
+            this.unreadMessages = 0;
+
+            this.$nextTick(() => {
+                this.scrollToBottom()
+            });
+        }
+
+    },
 }
 </script>
