@@ -73,9 +73,26 @@
                     <p>Landing page for Medieval Havoc.</p>
                 </div>
                 <div class="roadmap__feature">
-                    <h2>professions, land, etc</h2>
-                    <p>Landing page for Medieval Havoc.</p>
+                    <h2>Professions</h2>
+                    <p>Train your professions to aid you in your ventures.</p>
                 </div>
+                <div class="roadmap__feature">
+                    <h2>Land</h2>
+                    <p>Purchase land.</p>
+                </div>
+                <div class="roadmap__feature">
+                    <h2>Titles</h2>
+                    <p>Obtain titles through great accomplishments.</p>
+                </div>
+                <div class="roadmap__feature">
+                    <h2>Titles</h2>
+                    <p>Obtain titles through great accomplishments.</p>
+                </div>
+                <div class="roadmap__feature">
+                    <h2>World Bosses</h2>
+                    <p>Come together as a community to defeat some of the toughest bosses.</p>
+                </div>
+                
             </div>
             <div class="roadmap__column">
                 <div class="roadmap__title">
