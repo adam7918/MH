@@ -1,7 +1,7 @@
 <template>
     <div class="chat-tab">
         <div class="chat-tab-header" @click="chatOpen = !chatOpen; chatTabTitle = 'World Chat'; unreadMessages = 0">
-            <p>{{chatTabTitle}}</p>
+            <p><i class="fas fa-comment"></i> {{chatTabTitle}}</p>
             <p>{{$root.onlineUserCount}} Online</p>
         </div>
         <div v-if="chatOpen" class="chat-message-panel">

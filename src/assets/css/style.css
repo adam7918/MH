@@ -487,6 +487,10 @@ button:focus, button:active {
     padding: 10px;
 }
 
+.chat-tab-header i {
+    margin-right: 3px;
+}
+
 .chat-message-panel {
     height: 320px;
     display: flex;
