@@ -37,6 +37,7 @@ export default {
     },
     methods: {
         sendMessage(e) {
+            if(this.message){
             var d = new Date()
             var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
             e.preventDefault()
@@ -47,6 +48,7 @@ export default {
                 timestamp: timestamp
             });
             this.message = ''
+        }
         }
     },
     mounted() {
