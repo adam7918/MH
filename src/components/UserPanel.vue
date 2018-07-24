@@ -83,6 +83,7 @@ export default {
         }
     },
     created(){
+        this.getUserStats()
         this.loggedIn = (localStorage.getItem('token'))
         this.updatePanel()
     },
@@ -123,7 +124,7 @@ export default {
         },  
         getUserStats: function(){
             if(!this.loggedIn){
-                axios.get(this.$apiUrl + '/account/all', this.$auth.getTokenHeader())
+                axios.get(this.$apiUrl + '/account/registered', this.$auth.getTokenHeader())
                 .then(response =>{
                     console.log("all accounts:")
                     console.log(response.data)

@@ -12,6 +12,6 @@ router.post('/login/', account_controller.login)
 router.get('/online/all', account_controller.get_count_users_online);
 router.get('/online/all/detailed', VerifyToken, account_controller.get_details_users_online);
 router.put('/online/', VerifyToken, account_controller.update_last_online);
-router.get('/all', account_controller.get_count_users_all);
+router.get('/registered', account_controller.get_count_users_all);
 
 module.exports = router;
