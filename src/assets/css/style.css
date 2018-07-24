@@ -500,8 +500,6 @@ button:focus, button:active {
 }
 
 .chat-messages-container::-webkit-scrollbar  { 
-    background: none !important;
-    width: 0px;
 }
 
 .chat-messages-container {
@@ -533,18 +531,23 @@ button:focus, button:active {
 }
 
 .chat-message h2 {
-    font-family: 'Roboto Condensed', sans-serif !important;
-    color: #aaa;
+    font-weight: 500;
+    color: #999;
     font-size: 14px;
     margin: 0;
     cursor: pointer;
     margin-right: 10px;
 }
 
+.chat-message h2:last-child {
+    color: #777;
+    font-weight: 400;
+}
+
 .chat-message p {
     font-size: 14px;
     margin: 0;
-    color: #fff;
+    color: #aaa;
 }
 
 .chat-message p:first-child {

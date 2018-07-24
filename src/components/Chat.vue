@@ -8,7 +8,7 @@
             <div class="chat-messages-container" id="chat-message-id">
                 <div class="chat-message" v-for="(msg, index) in $root.chatHistory" :key="index">
                     <span class="chat-user">
-                        <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}</router-link>
+                        <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}:</router-link>
                         <h2>{{msg.timestamp}}</h2>
                     </span>
                     <p>{{ msg.message }}</p>
