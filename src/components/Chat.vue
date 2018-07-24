@@ -34,7 +34,7 @@ export default {
             chatOpen:false,
             chatTabTitle:'World Chat',
             unreadMessages:0,
-
+            onlineCount:0,
         }
     },
     methods: {
@@ -59,6 +59,9 @@ export default {
                 this.unreadMessages++
                 this.chatTabTitle = this.unreadMessages + ' unread'
             }
+        });
+        this.socket.on('ONLINE_COUNT', (data) => {
+            this.onlineCount = data;
         });
     }
 }

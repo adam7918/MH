@@ -26,23 +26,25 @@ var server = app.listen(config.app_port, function (){
 const io = require('socket.io')(server);
 var usersOnline = 0;
 
+// ON SOCKET.IO CONNECTION
 io.on('connection', function(socket) {
+    // EMIT ONLINE USER COUNT
     usersOnline++
-    console.log(usersOnline)
+    io.emit('ONLINE_COUNT', usersOnline)
+
+    // ON SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
+        // EMIT THE MESSAGE RECEIVED
         io.emit('MESSAGE', data)
     });
     
+    // ON SOCKET.IO DISCONNECTION
     socket.on('disconnected', function() {
+        // EMIT ONLINE USER COUNT
         usersOnline--
-        socket.emit('ONLINE_COUNT', usersOnline);
-        console.log(usersOnline)
+        io.emit('ONLINE_COUNT', usersOnline);
     });
 });
-
-io.on('')
-
-
 
 /* SOCKET.IO END */
 
