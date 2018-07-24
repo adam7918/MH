@@ -72,6 +72,10 @@
                     <h2>Landing Page</h2>
                     <p>Landing page for Medieval Havoc.</p>
                 </div>
+                <div class="roadmap__feature">
+                    <h2>professions, land, etc</h2>
+                    <p>Landing page for Medieval Havoc.</p>
+                </div>
             </div>
             <div class="roadmap__column">
                 <div class="roadmap__title">

@@ -2,7 +2,7 @@
     <div>
         <article class="user-panel-background">
         </article>
-        <article class="user-panel">
+        <article v-if="loggedIn" class="user-panel">
             <div class="user-panel__left">
                 <router-link to="/profile" tag="img" src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg"></router-link>
                 <div class="user-panel__user">
@@ -61,6 +61,7 @@ export default {
             health: '',
             energy: '',
             dailyGift: false,
+            loggedIn: false,
         }
     },
     created(){

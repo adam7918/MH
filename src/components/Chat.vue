@@ -1,5 +1,5 @@
 <template>
-    <div class="chat-tab">
+    <div class="chat-tab" v-if="loggedIn">
         <div class="chat-tab-header" @click="toggleChat()">
             <p><i class="fas fa-comment"></i> {{chatTabTitle}}</p>
             <p>{{$root.onlineUserCount}} Online</p>
@@ -34,7 +34,12 @@ export default {
         }
     },
     created(){
-        
+        this.loggedIn = (localStorage.getItem('token'))
+    },
+    watch: {
+      '$route': function () {
+        this.loggedIn = (localStorage.getItem('token'))
+      }
     },
     mounted() {
         this.$socket.on('MESSAGE', (data) => {
