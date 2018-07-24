@@ -30,7 +30,7 @@ var connectedClients = [];
 io.on('connection', function(socket) {
     // EMIT ONLINE USER COUNT
     connectedClients.push(socket)
-    io.emit('ONLINE_COUNT', connectClients.length)
+    io.emit('ONLINE_COUNT', connectedClients.length)
 
     // ON SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
