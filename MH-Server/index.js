@@ -39,7 +39,7 @@ io.on('connection', function(socket) {
     });
     
     // ON SOCKET.IO DISCONNECTION
-    socket.on('disconnected', function() {
+    socket.on('disconnect', function() {
         // EMIT ONLINE USER COUNT
         usersOnline--
         io.emit('ONLINE_COUNT', usersOnline);

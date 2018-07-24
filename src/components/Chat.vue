@@ -2,7 +2,7 @@
     <div class="chat-tab">
         <div class="chat-tab-header" @click="chatOpen = !chatOpen; chatTabTitle = 'World Chat'; unreadMessages = 0">
             <p>{{chatTabTitle}}</p>
-            <p>3 Online</p>
+            <p>{{onlineCount}} Online</p>
         </div>
         <div v-if="chatOpen" class="chat-message-panel">
             <div class="chat-messages-container" id="chat-message-id">
