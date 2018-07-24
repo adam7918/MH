@@ -25,6 +25,7 @@
                     <span>Already got an account? Click <a @click="registerMode = !registerMode; clearMessagesAndForms()">here</a> to login.</span> 
                 </form>
             </div>
+            <router-link tag="p" to="/" class="login-return">Return to landing page</router-link>
             
         </div>
     </main>

@@ -11,7 +11,8 @@
         </div>
             <div class="content">
         <div class="content-introduction">
-            <p>In development. Visit our  <a href="https://discord.gg/nxg5bGw" target="_blank">discord</a> to join in on the discussion.</p>
+            <p>A medieval mmorpg text-based game, currently in development.</p>
+            <p>Come join our <a href="https://discord.gg/nxg5bGw" target="_blank">discord</a> and follow our progress.</p>
         </div>
         </div>
     </main>

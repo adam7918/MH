@@ -45,6 +45,22 @@
                 </div>
             </div>
         </article>
+        <article v-else class="user-panel">
+            <div class="user-panel__left">
+                <div class="user-panel__user">
+                </div>
+            </div>
+            <div class="user-panel__right">
+                <div class="user-panel__stat">
+                    <p>{{onlineUserCount}}</p>
+                    <p>Online</p>
+                </div>
+                <div class="user-panel__stat">
+                    <p>{{registeredUserCount}}</p>
+                    <p>Registered</p>
+                </div>
+            </div>
+        </article>
     </div>
 </template>
 <script>
@@ -62,34 +78,40 @@ export default {
             energy: '',
             dailyGift: false,
             loggedIn: false,
+            registeredUserCount: 0,
+            onlineUserCount: 0,
         }
     },
     created(){
+        this.loggedIn = (localStorage.getItem('token'))
         this.updatePanel()
     },
       watch: {
       // ON ROUTE CHANGE HIDE MENUS
       '$route': function () {
+        this.loggedIn = (localStorage.getItem('token'))
         this.updatePanel()
       },
     },
     methods: {
         updatePanel: function(){
-            let self = this
-            axios.get(this.$apiUrl + '/playerstat/', this.$auth.getTokenHeader())
-            .then(response =>{
-                this.level = response.data[0].level
-                this.experience = response.data[0].experience
-                this.gold = response.data[0].gold
-                this.health = response.data[0].health
-                this.energy = response.data[0].energy
-                this.rubies = response.data[0].rubies
-                this.username = response.data[0].username
-                this.dailyGift = response.data[0].daily_gift
-                localStorage.setItem('username', this.username)
-            })
-            .catch(e => {
-            })
+            if(this.loggedIn){
+                let self = this
+                axios.get(this.$apiUrl + '/playerstat/', this.$auth.getTokenHeader())
+                .then(response =>{
+                    this.level = response.data[0].level
+                    this.experience = response.data[0].experience
+                    this.gold = response.data[0].gold
+                    this.health = response.data[0].health
+                    this.energy = response.data[0].energy
+                    this.rubies = response.data[0].rubies
+                    this.username = response.data[0].username
+                    this.dailyGift = response.data[0].daily_gift
+                    localStorage.setItem('username', this.username)
+                })
+                .catch(e => {
+                })
+            }
         },
         openGift: function(){
         this.$notify({
@@ -98,8 +120,28 @@ export default {
             type: 'success',
             text: 'You have received: '
         });
+        },  
+        getUserStats: function(){
+            if(!this.loggedIn){
+                axios.get(this.$apiUrl + '/account/all', this.$auth.getTokenHeader())
+                .then(response =>{
+                    console.log("all accounts:")
+                    console.log(response.data)
+                    this.registeredUserCount = response.data
+                })
+                .catch(e => {
+                })
 
-        },   
+                axios.get(this.$apiUrl + '/account/online/all', this.$auth.getTokenHeader())
+                .then(response =>{
+                    console.log("online accounts:")
+                    console.log(response.data)
+                    this.onlineUserCount = response.data
+                })
+                .catch(e => {
+                })
+            }
+        } 
     }
 }
 </script>

@@ -54,6 +54,18 @@ exports.get_count_users_online = function (req, res) {
     });
 }
 
+exports.get_count_users_all = function (req, res) {
+    pool.query("SELECT COUNT(*) FROM account", function (err, row) {
+        if (err) {
+            res.status(400).json({ error: err });
+        } else if (row.length == 0) {
+            res.status(404).json({ error: "No users." });
+        } else {
+            res.status(200).json(row[0]);
+        }
+    });
+}
+
 exports.update_last_online = function (req, res) {
     pool.query("UPDATE account SET last_online = now() WHERE username = ?", [req.username], function (err, row) {
         if (err) {
