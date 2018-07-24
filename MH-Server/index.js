@@ -36,7 +36,7 @@ io.on('connection', function(socket) {
 
     // ON +SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
-        chatMessageHistory = [...chatMessageHistory, data]
+        chatMessageHistory.push(data)
         // EMIT THE MESSAGE RECEIVED
         io.emit('MESSAGE', data)
     });

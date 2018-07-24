@@ -36,6 +36,7 @@ export default {
     },
     created(){
         this.messages = this.$root.chatHistory
+        console.log(this.$root.chatHistory)
     },
     methods: {
         sendMessage(e) {
