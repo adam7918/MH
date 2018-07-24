@@ -25,7 +25,7 @@ var server = app.listen(config.app_port, function (){
 const io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
-    console.log(socket.id)
+    console.log(socket.connected)
     socket.on('SEND_MESSAGE', function(data) {
         io.emit('MESSAGE', data)
     });
