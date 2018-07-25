@@ -59,6 +59,20 @@ io.on('connection', function(socket) {
         io.emit('ONLINE_COUNT', connectedClients.length);
     });
 
+    // ON SOCKET.IO RECONNECT
+    socket.on('reconnect', function() {
+       var alreadyOnline = false
+       for(var i=0; i < connectedClients.length; i++) { 
+           if(connectedClients[i]._username == socket._username) return alreadyOnline = true; 
+       }
+
+       // EMIT ONLINE USER COUNT
+       if(!alreadyOnline){
+           connectedClients.push(socket)
+           io.emit('ONLINE_COUNT', connectedClients.length)
+       }
+    });
+
     // ON SOCKET.IO DISCONNECTION
     socket.on('disconnect', function() {
         var i = connectedClients.indexOf(socket);
