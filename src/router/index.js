@@ -31,7 +31,8 @@ export default new Router({
         default: Index,
         header: Header,
         userpanel: UserPanel,
-        footer: Footer
+        footer: Footer,
+        chat:Chat
       }
     },
     {

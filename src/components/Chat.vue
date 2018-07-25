@@ -1,5 +1,5 @@
 <template>
-    <div class="chat-tab" v-if="loggedIn">
+    <div class="chat-tab">
         <div class="chat-tab-header" @click="toggleChat()">
             <p><i class="fas fa-comment"></i> {{chatTabTitle}}</p>
             <p>{{$root.onlineUserCount}} Online</p>
@@ -16,7 +16,8 @@
             </div>
             <form @submit.prevent="sendMessage">
                     <div class="chat-input">
-                        <input type="text" v-model="message" placeholder="Type a message...">
+                        <input v-if="loggedIn" type="text" v-model="message" placeholder="Type a message...">
+                        <input v-else type="text" v-model="message" placeholder="Must be logged in to chat" disabled>
                     </div>
             </form>
         </div>
