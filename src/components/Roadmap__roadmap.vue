@@ -85,10 +85,6 @@
                     <p>Obtain titles through great accomplishments.</p>
                 </div>
                 <div class="roadmap__feature">
-                    <h2>Titles</h2>
-                    <p>Obtain titles through great accomplishments.</p>
-                </div>
-                <div class="roadmap__feature">
                     <h2>World Bosses</h2>
                     <p>Come together as a community to defeat some of the toughest bosses.</p>
                 </div>
