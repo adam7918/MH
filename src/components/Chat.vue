@@ -50,8 +50,10 @@ export default {
         this.$socket.on('MESSAGE', (data) => {
             this.$root.chatHistory = [...this.$root.chatHistory, data]
             if(!this.chatOpen){
-                this.unreadMessages++
-                this.chatTabTitle = this.unreadMessages + ' unread'
+                if(!(data.user == localStorage.getItem('username'))){
+                    this.unreadMessages++
+                    this.chatTabTitle = this.unreadMessages + ' unread'
+                }
             }
             this.$nextTick(() => {
                 this.scrollToBottom()
