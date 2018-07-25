@@ -32,7 +32,7 @@ io.on('connection', function(socket) {
     io.emit('CHAT_HISTORY', chatMessageHistory)
 
     // ON LOGIN
-    socket.on('USER_LOGIN'), function(data){
+    socket.on('USER_LOGIN', function(data){
         var alreadyOnline = false
         for(var i=0; i < connectedClients.length; i++) { 
             if(connectedClients[i]._username == data) return alreadyOnline = true; 
@@ -45,7 +45,7 @@ io.on('connection', function(socket) {
             console.log(socket.username)
             io.emit('ONLINE_COUNT', connectedClients.length)
         }
-    }
+    });
 
     // ON +SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {
