@@ -1,8 +1,8 @@
 <template>
     <div class="content">
         <div class="content-introduction">
-            <p><span class="color--white">{{$root.onlineUserCount}}</span> online</p>
-            <p><span class="color--white">{{onlineUserCount}}</span> active in the last 30 minutes</p>
+            <p><span class="color--white">{{$root.onlineUserCount}}</span> online | <span class="color--white">{{onlineUserCount}}</span> active in the last 30 minutes</p>
+            <p></p>
 
         </div>
         <div class="online-users">
