@@ -498,6 +498,18 @@ button:focus, button:active {
     flex-direction: column;
     justify-content: space-between;
 }
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+  transition: all 0.4s;
+  max-height: 320px;
+}
+.fadeHeight-enter,
+.fadeHeight-leave-to
+{
+  max-height: 0px;
+}
 
 .chat-messages-container::-webkit-scrollbar  { 
 }

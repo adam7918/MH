@@ -4,6 +4,7 @@
             <p><i class="fas fa-comment"></i> {{chatTabTitle}}</p>
             <p>{{$root.onlineUserCount}} Online</p>
         </div>
+          <transition name="fadeHeight" mode="out-in">
         <div v-if="chatOpen" class="chat-message-panel">
             <div class="chat-messages-container" id="chat-message-id">
                 <div class="chat-message" v-for="(msg, index) in $root.chatHistory" :key="index">
@@ -21,6 +22,7 @@
                     </div>
             </form>
         </div>
+          </transition>
     </div>
 </template>
 <script>
