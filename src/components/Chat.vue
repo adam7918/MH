@@ -37,13 +37,13 @@ export default {
         }
     },
     created(){
-        this.loginToChat()
         this.loggedIn = (localStorage.getItem('token'))
+        this.loginToChat()
     },
     watch: {
       '$route': function () {
-            this.loginToChat()
             this.loggedIn = (localStorage.getItem('token'))
+            this.loginToChat()
       }
     },
     mounted() {
