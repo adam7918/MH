@@ -63,7 +63,7 @@ export default {
     },
     methods: {
         loginToChat: function() {
-            if(this.loggedIn && !this.chatLoggedIn){
+            if((this.loggedIn && !this.chatLoggedIn) || (this.chatLoggedIn && this.$root.onlineUserCount)){
                 this.$socket.emit('USER_LOGIN', localStorage.getItem('username'));
                 this.chatLoggedIn = true
             }
