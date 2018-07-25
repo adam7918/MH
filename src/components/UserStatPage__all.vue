@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="content-introduction">
-            <p>There are <span class="color--white">{{allUserCount}}</span> players registered.</p>
+            <p><span class="color--white">{{allUserCount}}</span> registered</p>
         </div>
         <div class="online-users">
            <router-link :to="{ name: 'Profile', params: { username: user.username}}" v-for="user in allUsers" :key="user.username" class="online-users-panel">
