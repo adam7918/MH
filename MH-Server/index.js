@@ -43,7 +43,6 @@ io.on('connection', function(socket) {
         if(!alreadyOnline){
             socket._username = data
             connectedClients.push(socket)
-            console.log(socket.username)
             io.emit('ONLINE_COUNT', connectedClients.length)
         }
     });
