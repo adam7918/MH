@@ -63,6 +63,6 @@ new Vue({
 
 
 router.beforeEach((to, from, next) => {
-  document.title = `MH - ${to.name}`
+  document.title = `Medieval Havoc - ${to.name}`
   next()
 })
