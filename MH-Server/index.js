@@ -29,6 +29,7 @@ var chatMessageHistory = [];
 
 // ON SOCKET.IO CONNECTION
 io.on('connection', function(socket) {
+    io.emit('ONLINE_COUNT', connectedClients.length)
     io.emit('CHAT_HISTORY', chatMessageHistory)
 
     // ON LOGIN

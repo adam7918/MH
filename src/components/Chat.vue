@@ -36,12 +36,13 @@ export default {
         }
     },
     created(){
-        
+        this.loginToChat()
         this.loggedIn = (localStorage.getItem('token'))
     },
     watch: {
       '$route': function () {
-        this.loggedIn = (localStorage.getItem('token'))
+            this.loginToChat()
+            this.loggedIn = (localStorage.getItem('token'))
       }
     },
     mounted() {
