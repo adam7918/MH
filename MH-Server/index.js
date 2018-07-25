@@ -29,10 +29,23 @@ var chatMessageHistory = [];
 
 // ON SOCKET.IO CONNECTION
 io.on('connection', function(socket) {
-    // EMIT ONLINE USER COUNT
-    connectedClients.push(socket)
-    io.emit('ONLINE_COUNT', connectedClients.length)
     io.emit('CHAT_HISTORY', chatMessageHistory)
+
+    // ON LOGIN
+    socket.on('USER_LOGIN'), function(data){
+        var alreadyOnline = false
+        for(var i=0; i < connectedClients.length; i++) { 
+            if(connectedClients[i]._username == data) return alreadyOnline = true; 
+        }
+
+        // EMIT ONLINE USER COUNT
+        if(!alreadyOnline){
+            socket._username = data
+            connectedClients.push(socket)
+            console.log(socket.username)
+            io.emit('ONLINE_COUNT', connectedClients.length)
+        }
+    }
 
     // ON +SEND_MESSAGE RECEIVED
     socket.on('SEND_MESSAGE', function(data) {

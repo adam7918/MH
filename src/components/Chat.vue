@@ -31,9 +31,12 @@ export default {
             chatOpen:false,
             chatTabTitle:'World Chat',
             unreadMessages:0,
+            loggedIn: false,
+            chatLoggedIn: false,
         }
     },
     created(){
+        
         this.loggedIn = (localStorage.getItem('token'))
     },
     watch: {
@@ -55,6 +58,12 @@ export default {
         });
     },
     methods: {
+        loginToChat: function() {
+            if(this.loggedIn && !this.chatLoggedIn){
+                this.$socket.emit('USER_LOGIN', localStorage.getItem('username'));
+                this.chatLoggedIn = true
+            }
+        },
         sendMessage: function(e) {
                 if(this.message){
                 var d = new Date()
