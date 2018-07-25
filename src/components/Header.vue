@@ -44,9 +44,10 @@ export default {
     },
     methods: {
         logout: function(){
+            
             localStorage.removeItem('token')
             localStorage.removeItem('username')
-            this.$router.push('/')
+            this.$route.name == 'Home' ? this.$router.push('/login') : this.$router.push('/')
         },
         updateLastOnline: function(){
             if(localStorage.getItem('token')){
