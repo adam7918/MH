@@ -1,11 +1,10 @@
 html {
     height:100%;
-    min-width: 1025px;
+    min-width: 860px;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    min-width: 1025px;
     background: #222222;
     color: white;
     margin:0;
@@ -24,7 +23,7 @@ button:focus, button:active {
 }
 
 .content {
-    margin: 27.5px 18% 27.5px 18%;
+    margin: 27.5px 16% 27.5px 16%;
     min-height: 65vh;
 }
 
@@ -41,7 +40,7 @@ button:focus, button:active {
 .nav__left {
     display: flex;
     flex-direction: row;
-    margin-left: 18%;
+    margin-left: 16%;
     align-items: center;
 }
 
@@ -82,7 +81,7 @@ button:focus, button:active {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 18%;
+    margin-right: 16%;
 }
 
 .nav__right > *:not(:last-child){
@@ -235,7 +234,7 @@ button:focus, button:active {
 .footer__left {
     display: flex;
     flex-direction: row;
-    margin-left: 18%;
+    margin-left: 16%;
 }
 
 .footer__left > p {
@@ -246,7 +245,7 @@ button:focus, button:active {
 .footer__right {
     display: flex;
     flex-direction: row;
-    margin-right: 18%;
+    margin-right: 16%;
 }
 
 .footer__right > a {
@@ -295,7 +294,7 @@ button:focus, button:active {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 18%;
+    margin-left: 16%;
 }
 
 .user-panel__left > img {
@@ -365,7 +364,7 @@ button:focus, button:active {
     align-items: center;
 
     flex-direction: row;
-    margin-right: 18%;
+    margin-right: 16%;
 }
 
 .user-panel__stat {
@@ -417,7 +416,7 @@ button:focus, button:active {
 }
 
 .navbar-items {
-    margin: 0 18% 0 18%;
+    margin: 0 16% 0 16%;
     display: flex;
     flex-direction: row;
     color: #ddd;
@@ -610,7 +609,7 @@ button:focus, button:active {
     color: #777;
     padding-top: 27.5px;
     min-height: 70vh;
-    margin: 0 18% 0 18%;
+    margin: 0 16% 0 16%;
 }
 
 .roadmap {
@@ -977,7 +976,6 @@ button:focus, button:active {
     color: #ddd; 
 } 
  
- 
 .color--white {
     color: #fff;
 }
@@ -995,7 +993,7 @@ button:focus, button:active {
     flex-direction: column;
     min-height: 66vh;
     padding: 27.5px 0;
-    margin:0 18%;
+    margin:0 16%;
     color: #555;
     font-size: 14px;
 }
@@ -1005,6 +1003,49 @@ button:focus, button:active {
     color: #ca452f;
     cursor:pointer !important;
 }
+
+
+@media all and (max-width: 1199px) { 
+    .content {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .nav__left {
+        margin-left: 5%;
+    }
+    .nav__right {
+        margin-right: 5%;
+    }
+    .footer__left {
+        margin-left: 5%;
+    }
+    .footer__right {
+        margin-right: 5%;
+    }
+    .user-panel__left {
+        margin-left: 5%;
+    }
+    .user-panel__right {
+        margin-right: 5%;
+    }
+    .navbar-items {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .placeholderdiv {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+@media all and (max-width: 991px) { 
+
+ } 
+@media all and (max-width: 768px) { 
+
+ } 
+@media all and (max-width: 575px) { 
+
+ }
 
 
 
