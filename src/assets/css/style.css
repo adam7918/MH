@@ -102,11 +102,13 @@ button:focus, button:active {
     font-family: 'Roboto', sans-serif !important;
     border: none;
     text-align: center;
-    width: 100px;
-    height: 35px;
+    width: 90px;
     text-transform: capitalize;
     border-radius: 4px;
-    color: #ccc;
+    color: #fff;
+    height: 35px;
+    font-weight: 300;
+    font-size: 13px;
     background: #719E2F;
     cursor: pointer;
 }
