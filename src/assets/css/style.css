@@ -150,7 +150,7 @@ button:focus, button:active {
 
 #login-title {
     margin:0 0 15px 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-family: 'Roboto Condensed', sans-serif !important;
     font-weight: 300;
 }
@@ -181,18 +181,20 @@ button:focus, button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin: 0;
+    width: 420px;
+    margin: 10px 0 0 0;
+    font-size: 13px;
 }
 
 .login-panel input[type=text],[type=password],[type=submit], [type=email] {
     width: 85%;
+    background:#f1f1f1;
     outline:none;
     border:none;
-    margin:10px;
+    margin:8px;
     height:55px;
     font-size:1em;
-    border-radius: 3px;
+    border-radius: 1px;
 }
 
 .login-panel input[type=text],[type=password],[type=email] {
@@ -220,6 +222,17 @@ button:focus, button:active {
     color:#ca452f;
     font-size:inherit;
     cursor: pointer;
+}
+
+.login-panel__register {
+    font-size: 14px;
+    color: #ddd;
+}
+.login-return {
+    padding-top: 5px;
+    font-size: 14px;
+    color: #ca452f;
+    cursor:pointer !important;
 }
 
 .footer {
@@ -1000,11 +1013,6 @@ button:focus, button:active {
     font-size: 14px;
 }
 
-.login-return {
-    font-size: 13px;
-    color: #ca452f;
-    cursor:pointer !important;
-}
 
 
 @media all and (max-width: 1199px) { 

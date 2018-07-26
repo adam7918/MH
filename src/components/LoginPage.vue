@@ -11,7 +11,7 @@
                     <input v-model="loginUsername" type="text" placeholder="username" required>
                     <input v-model="loginPassword" type="password" placeholder="password" required>
                     <input type="submit" value="LOGIN">
-                    <span>No account yet? Click <a @click="/* registerMode = !registerMode; clearMessagesAndForms() */ closedRegistration()">here</a> to register.</span> 
+                    <span class="login-panel__register">No account yet? Click <a @click="/* registerMode = !registerMode; clearMessagesAndForms() */ closedRegistration()">here</a> to register.</span> 
                 </form>
             </div>
             <!-- Registration Form -->
@@ -22,10 +22,10 @@
                     <input v-model="registerEmail" type="email" placeholder="email address" required>
                     <input v-model="registerPassword" type="password" placeholder="password" required>
                     <input type="submit" value="REGISTER">
-                    <span>Already got an account? Click <a @click="registerMode = !registerMode; clearMessagesAndForms()">here</a> to login.</span> 
+                    <span class="login-panel__register">Already got an account? Click <a @click="registerMode = !registerMode; clearMessagesAndForms()">here</a> to login.</span> 
                 </form>
             </div>
-            <router-link tag="p" to="/" class="login-return">Return to landing page</router-link>
+            <router-link tag="p" to="/" class="login-return">Return</router-link>
             
         </div>
     </main>
