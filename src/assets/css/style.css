@@ -167,6 +167,7 @@ button:focus, button:active {
     background: #333333;
     width:450px;
     padding:30px 0 15px 0;
+    box-shadow: 0 0 5px rgba(0,0,0,.21);
 }
 
 .login-panel__error {
