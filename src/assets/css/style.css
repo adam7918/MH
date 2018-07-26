@@ -34,7 +34,6 @@ button:focus, button:active {
     justify-content: space-between;
     height: 65px;
     background: #141414;
-
 }
 
 .nav__left {
@@ -56,6 +55,7 @@ button:focus, button:active {
     color: #aaa;
     padding-left: 12px;
     outline: none;
+
 }
 
 .nav__left > i {
@@ -111,6 +111,7 @@ button:focus, button:active {
     font-size: 13px;
     background: #719E2F;
     cursor: pointer;
+
 }
 
 .nav__button:hover {
@@ -196,6 +197,8 @@ button:focus, button:active {
     height:55px;
     font-size:1em;
     border-radius: 1px;
+    box-shadow: 0 0 5px rgba(0,0,0,.38);
+
 }
 
 .login-panel input[type=text],[type=password],[type=email] {
@@ -315,6 +318,7 @@ button:focus, button:active {
 
 .user-panel__left > img {
     margin-right: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,.38);
     height: 80px;
     cursor:pointer;
     width: 80px;
@@ -360,6 +364,8 @@ button:focus, button:active {
     color: #ccc;
     background: #ca452f;
     cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,.21);
+
 }
 
 
@@ -438,6 +444,7 @@ button:focus, button:active {
     color: #ddd;
     font-size: 14px;
     height: 100%;
+    
 }
 
 .navbar-items p {
@@ -462,6 +469,7 @@ button:focus, button:active {
     flex-direction: row;
     align-items: center;
     cursor:pointer;
+    
 }
 
 .navbar-items--active {
@@ -666,6 +674,8 @@ button:focus, button:active {
     border-radius: 4px;
     padding: 5px 20px;
     margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,.21);
+
 }
 
 .roadmap__feature > h2 {
@@ -788,6 +798,7 @@ button:focus, button:active {
     display: flex;
     flex-direction: column;
     margin-bottom: 75px;
+
 }
 
 .ranking-table-top {
@@ -798,6 +809,7 @@ button:focus, button:active {
     font-family: 'Roboto Condensed', sans-serif !important;
     font-weight: bolder;
     font-size: 18px;
+
 }
 
 .ranking-table-header {
@@ -979,6 +991,8 @@ button:focus, button:active {
     padding: 5px 20px; 
     background: #141414; 
     margin-bottom: 10px; 
+    box-shadow: 0 0 5px rgba(0,0,0,.21);
+
 } 
  
 .faq-question p { 
