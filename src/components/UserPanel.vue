@@ -111,6 +111,10 @@ export default {
                     localStorage.setItem('username', this.username)
                 })
                 .catch(e => {
+                    if(e.response.status == 401){
+                        localStorage.removeItem('token')
+                        localStorage.removeItem('username')
+                    }
                 })
             }
         },
