@@ -8,9 +8,9 @@
         <div class="online-users">
            <router-link :to="{ name: 'Profile', params: { username: user.username}}" v-for="user in onlineUsers" :key="user.username" class="online-users-panel">
                
-               <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg"/>
+               <img src="https://res-5.cloudinary.com/hireclub/image/upload/default_avatar.png"/>
                <div class="online-users-panel__text">
-                   <h2><span class="online-users-panel--level">Lvl {{user.level}}.</span> {{user.username}}</h2>
+                   <h2><span class="online-users-panel--level">Lvl {{user.level}}</span> {{user.username}}</h2>
                    <p>{{parseDate(user.last_online)}}</p>
                </div>
            </router-link>

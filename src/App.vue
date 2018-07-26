@@ -18,8 +18,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800');
 </style>
 
 

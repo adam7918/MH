@@ -2,7 +2,7 @@
     <main>
         <section class="login-background-top"></section>
         <div class="container">
-            <h1 id="login-title">Medieval<span>Havoc</span> </h1>
+            <h1 class="game-title login-title">Medieval<span>Havoc</span> </h1>
             <!-- Login Form -->
             <div class="login-panel" v-if="!registerMode">
                 <p v-if="registrationSuccessMessage" class="login-panel__success">{{registrationSuccessMessage}}</p>
@@ -10,7 +10,7 @@
                 <form v-on:submit.prevent=" registrationSuccessMessage=''; submitLoginForm();">
                     <input v-model="loginUsername" type="text" placeholder="username" required>
                     <input v-model="loginPassword" type="password" placeholder="password" required>
-                    <input type="submit" value="LOGIN">
+                    <input type="submit" value="LOGIN" class="purple-button">
                     <span class="login-panel__register">No account yet? Click <a @click="/* registerMode = !registerMode; clearMessagesAndForms() */ closedRegistration()">here</a> to register.</span> 
                 </form>
             </div>

@@ -19,7 +19,7 @@
            <router-link :to="{ name: 'Profile', params: { username: user.username}}" tag="div" v-for="(user,index) in rankedUsers" :key="user.username" class="ranking-table-row">
                <p>#{{(index + 1)}}</p>
                <div class="ranking-table-user">
-                   <img src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg" />  
+                   <img src="https://res-5.cloudinary.com/hireclub/image/upload/default_avatar.png" />  
                    <div class="ranking-table-user-info">
                         <p class="ranking-table-user-level">Lvl {{user.level}}</p>
                         <h2>{{user.username}}</h2>

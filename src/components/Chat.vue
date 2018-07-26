@@ -7,17 +7,19 @@
           <transition name="fadeHeight" mode="out-in">
         <div v-if="chatOpen" class="chat-message-panel">
             <div class="chat-messages-container" id="chat-message-id">
-                <div class="chat-message" v-for="(msg, index) in $root.chatHistory" :key="index">
+                <div v-for="(msg, index) in $root.chatHistory" :key="index">
                     <span class="chat-user">
-                        <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}:</router-link>
+                        <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}</router-link>
                         <h2>{{msg.timestamp}}</h2>
                     </span>
-                    <p>{{ msg.message }}</p>
+                    <div class="chat-message">
+                        <p>{{ msg.message }}</p>
+                    </div>
                 </div>
             </div>
             <form @submit.prevent="sendMessage">
                     <div class="chat-input">
-                        <input v-if="loggedIn" type="text" v-model="message" placeholder="Type a message...">
+                        <input v-if="loggedIn" type="text" v-model="message" placeholder="Type your message...">
                         <input v-else type="text" v-model="message" placeholder="Must be logged in to chat" disabled>
                     </div>
             </form>

@@ -9,11 +9,22 @@
                 </ul>
             </div>
         </div>
-        <div class="placeholderdiv">Profiles - Coming soon.</div>
+        <div class="content">
+            <div class="ranking-filters-container">
+                <p>Actions</p>
+                <div class="ranking-filters-buttons">
+                    <p class="ranking-filters-buttons-active">Mail</p>
+                    <p class="ranking-filters-buttons-active">Add Friend</p>
+                </div>
+            </div>
+        </div>
     </main>
 </template>
 <script>
 import axios from 'axios'
+import jquery from 'jquery'
+
+let $ = jquery;
 
 export default {
     data() {
@@ -28,6 +39,7 @@ export default {
       },
     },
     created() {
+        
         if(!this.$auth.checkAuth()){
             this.$router.push('/login')
         }

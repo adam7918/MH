@@ -4,7 +4,7 @@
         </article>
         <article v-if="loggedIn" class="user-panel">
             <div class="user-panel__left">
-                <router-link to="/profile" tag="img" src="https://img.sndimg.com/food/image/upload/fl_progressive,e_brightness:15,w_200,h_200,c_fill,q_92/v1/fdc/img/placeholder/fdc-generic-avatar.jpg"></router-link>
+                <router-link to="/profile" tag="img" src="https://res-5.cloudinary.com/hireclub/image/upload/default_avatar.png"></router-link>
                 <div class="user-panel__user">
                     <div class="user-panel__username">
                         <router-link to="/profile" tag="p"><span class="user-panel__username--small">Lvl {{level}}.</span> {{username}}</router-link>
@@ -23,25 +23,39 @@
                 </div>
             </div>
             <div class="user-panel__right">
-                <div class="user-panel__stat">
-                    <p>{{health}}</p>
-                    <p>Health</p>
+                <div class="user-panel__currencies">
+                    <div class="user-panel__currency">
+                        <p class="">{{gold}}</p>
+                        <i class="fas fa-coins color--gold"></i>
+                    </div>
+                    <div class="user-panel__currency">
+                        <p class="">{{rubies}}</p>
+                        <i class="far fa-gem color--red"></i>
+                    </div>
                 </div>
                 <div class="user-panel__stat">
-                    <p>{{energy}}</p>
-                    <p>Energy</p>
+                    <div class="outer">
+                        <div class="inner" id="hp-bar" data-progress="10%">
+                            <div></div>
+                        </div>        
+                    </div>
+                    <p>Health {{hpPercent}}%</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p>{{experience}}</p>
-                    <p>Experience</p>
+                    <div class="outer">
+                        <div class="inner" id="energy-bar" data-progress="10%">
+                            <div></div>
+                        </div>        
+                    </div>
+                    <p>Energy {{energyPercent}}%</p>
                 </div>
                 <div class="user-panel__stat">
-                    <p class="user-panel--gold">{{gold}}</p>
-                    <p>Gold</p>
-                </div>
-                <div class="user-panel__stat">
-                    <p class="user-panel--red">{{rubies}}</p>
-                    <p>Rubies</p>
+                    <div class="outer">
+                        <div class="inner" id="xp-bar" data-progress="10%">
+                            <div></div>
+                        </div>        
+                    </div>
+                    <p>XP<br> {{xpPercent}}%</p>
                 </div>
             </div>
         </article>
@@ -65,6 +79,9 @@
 </template>
 <script>
 import axios from 'axios'
+import jquery from 'jquery'
+
+let $ = jquery;
 
 export default {
     data(){
@@ -80,12 +97,36 @@ export default {
             loggedIn: false,
             registeredUserCount: 0,
             onlineUserCount: 0,
+
+            currentHp: 100,
+            maxHp: 100,
+
+            currentEnergy: 5,
+            maxEnergy: 5,
+
+            currentXp: 0,
+            maxXp: 5,
+        }
+    },
+    computed: {
+        xpPercent: function(){
+            return (this.currentXp / this.maxXp)*100
+        },
+        hpPercent: function(){
+            return (this.currentHp / this.maxHp)*100
+        },
+        energyPercent: function(){
+            return (this.currentEnergy / this.maxEnergy)*100
         }
     },
     created(){
         this.getUserStats()
         this.loggedIn = (localStorage.getItem('token'))
         this.updatePanel()
+        this.$nextTick(() => {
+            this.updateStatBars()
+        });
+
     },
       watch: {
       // ON ROUTE CHANGE HIDE MENUS
@@ -142,7 +183,12 @@ export default {
                 .catch(e => {
                 })
             }
-        } 
+        },
+        updateStatBars: function(){
+            document.getElementById('hp-bar').style.height = this.hpPercent + '%'
+            document.getElementById('xp-bar').style.height = this.xpPercent + '%'
+            document.getElementById('energy-bar').style.height = this.energyPercent + '%'
+        }
     }
 }
 </script>

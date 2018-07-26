@@ -1,24 +1,26 @@
 <template>
         <header class="nav" v-if="loggedIn" >
             <div class="nav__left">
-                <router-link to="/overview" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
-                <input v-model="searchQuery" type="text" placeholder="Enter a username..." v-on:keydown="search">
-                <i class="fas fa-search" @click="search({key: 'Enter'})"></i>
+                <router-link to="/overview" tag="h1" class="game-title">Medieval<span>Havoc</span> </router-link>
+                <router-link to="/rankings" tag="a">Rankings</router-link>
+                <router-link to="/users" tag="a">{{$root.onlineUserCount}} Online</router-link>
+                <div class="nav__search">
+                    <i class="fas fa-search"></i>
+                    <input v-model="searchQuery" type="text" placeholder="Search" v-on:keydown="search">
+                </div>
             </div>
             <div class="nav__right">
-                <router-link to="/users" tag="a">{{$root.onlineUserCount}} Online</router-link>
-                <router-link to="/rankings" tag="a">Rankings</router-link>
                 <a @click='logout()'>Logout</a>
-                <router-link to="/explore" tag="button" class="nav__button">Explore</router-link>
+                <router-link to="/explore" tag="button" class="purple-button">Explore</router-link>
             </div>
         </header>
         <header class="nav" v-else>
             <div class="nav__left">
-                <router-link to="/" tag="h1" class="nav__title">Medieval<span>Havoc</span> </router-link>
+                <router-link to="/" tag="h1" class="game-title">Medieval<span>Havoc</span> </router-link>
+                <router-link to="/rankings" tag="a">Rankings</router-link>
             </div>
             <div class="nav__right">
-                <router-link to="/rankings" tag="a">Rankings</router-link>
-                <router-link to="/explore" tag="button" class="nav__button">Play</router-link>
+                <router-link to="/explore" tag="button" class="purple-button">Play</router-link>
             </div>
         </header>
 </template>
