@@ -63,7 +63,9 @@ io.on('connection', function(socket) {
     socket.on('reconnect', function() {
        var alreadyOnline = false
        for(var i=0; i < connectedClients.length; i++) { 
-           if(connectedClients[i]._username == socket._username) return alreadyOnline = true; 
+           if(connectedClients[i]._username == socket._username){
+                alreadyOnline = true;
+           } 
        }
 
        // EMIT ONLINE USER COUNT
