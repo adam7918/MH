@@ -162,9 +162,9 @@ export default {
         openGift: function(){
         this.$notify({
             group: 'notifications',
-            title: 'You have recieved:',
+            title: 'Daily Gift',
             type: 'success',
-            text: '50 Gold and 3 Rubies'
+            text: '+50 Gold<br>+3 Rubies'
         });
         },  
         getUserStats: function(){
