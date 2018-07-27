@@ -91,7 +91,7 @@
                     <p>Vote on which roadmap feature you want to be implemented next.</p>
                 </div>
                 <div class="roadmap__feature">
-                    <h2>Friends List</h2>
+                    <h2>Friend List</h2>
                     <p>Add friends so you can access them quicker.</p>
                 </div>
             </div>
