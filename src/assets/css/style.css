@@ -1187,6 +1187,8 @@ body:before {
 }
 
 .inventory-item {
+    display: flex;
+    flex-direction: column;
     width: 220px;
     height: 85px;
     background-color: rgba(198,198,255,.05);
@@ -1245,7 +1247,7 @@ body:before {
     border-top-left-radius: .3125rem;
     border-top-right-radius: .3125rem;
     content: "";
-    height: .2125rem;
+    height: .1125rem;
     opacity: .8;
     position: absolute;
     width: inherit;
