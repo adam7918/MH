@@ -398,7 +398,9 @@ export default {
             ]
         },
         checkTableFilters: function(item){
-            if(this.activeRarity != 0 && item.itemRarity != this.activeRarity){
+            if (this.activeType == 8 && item.itemType > 7 && (this.activeRarity == item.itemRarity || this.activeRarity == 0)) {
+                return true 
+            } else if(this.activeRarity != 0 && item.itemRarity != this.activeRarity){
                 return false
             } else if (this.activeType != 0 && item.itemType != this.activeType){
                 return false
