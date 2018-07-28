@@ -9,8 +9,9 @@ import Axios from 'axios'
 import Auth from './auth'
 import VueAnalytics from 'vue-analytics'
 import Notifications from 'vue-notification'
-import VueSocketio from 'vue-socket.io';
+import VueSocketio from 'vue-socket.io'
 
+Vue.use(require('vue-moment'));
 Vue.use(VueSocketio, 'http://www.medievalhavoc.com:3000')
 Vue.use(Notifications)
 Vue.use(VueAnalytics, {

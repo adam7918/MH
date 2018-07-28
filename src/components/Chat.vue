@@ -10,10 +10,10 @@
                 <div v-for="(msg, index) in $root.chatHistory" :key="index">
                     <span class="chat-user">
                         <router-link tag="h2" :to="{ name: 'Profile', params: { username: msg.user}}">{{msg.user}}</router-link>
-                        <h2>{{msg.timestamp}}</h2>
+                        <h2>{{ msg.timestamp | moment('ddd H:mm') }}</h2>
                     </span>
                     <div class="chat-message">
-                        <p>{{ msg.message }}</p>
+                        <p>{{msg.message}}</p>
                     </div>
                 </div>
             </div>
@@ -74,14 +74,13 @@ export default {
         },
         sendMessage: function(e) {
                 if(this.message){
-                var d = new Date()
-                var timestamp = d.getHours() + ':' + (d.getMinutes()< 10 ? ('0' + d.getMinutes()) : d.getMinutes())
+                
                 e.preventDefault()
                 
                 this.$socket.emit('SEND_MESSAGE', {
                     user: localStorage.getItem('username'),
                     message: this.message,
-                    timestamp: timestamp
+                    timestamp: new Date()
                 });
 
                 this.message = ''
