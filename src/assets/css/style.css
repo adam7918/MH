@@ -1342,12 +1342,12 @@ body:before {
 } 
 
 .vue-poll {
-    font-family: inherit;
-    color: inherit;
+    font-family: inherit !important;
+    color: inherit !important;
 }
 
 .bg {
-    background: #454B6C !important;
+    background-color: #454B6C !important;
 }
  
 .color--white {
