@@ -432,7 +432,6 @@ body:before {
 }
 
 .user-panel__username {
-    font-family: 'Roboto Condensed', sans-serif !important;
     color: white;
     font-size: 25px;
     font-weight: 600;
@@ -457,14 +456,15 @@ body:before {
 .user-panel__buttons > button {
     border: none;
     text-align: center;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 400;
     height: 30px;
     border-radius: 4px;
     color: #fff;
     background: #564fff;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0,0,0,.21);
+    font-family: inherit;
 
 }
 
