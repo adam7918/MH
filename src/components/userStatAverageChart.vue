@@ -14,10 +14,18 @@ export default {
         {
           label: 'Average',
           backgroundColor: [
-              'rgba(202, 69, 47, 0.2)',
+                'rgba(202, 69, 47, 0.2)',
+                'rgba(202, 69, 47, 0.2)',
+                'rgba(202, 69, 47, 0.2)',
+                'rgba(202, 69, 47, 0.2)',
+                'rgba(202, 69, 47, 0.2)',
           ],
           borderColor: [
-              'rgba(202,69,47,1)',
+                'rgba(202,69,47,1)',
+                'rgba(202,69,47,1)',
+                'rgba(202,69,47,1)',
+                'rgba(202,69,47,1)',
+                'rgba(202,69,47,1)',
           ],
           borderWidth: 1,
           data: [100, 32, 10, 5, 35]
@@ -26,9 +34,17 @@ export default {
           label: 'You',
           backgroundColor: [
               'rgba(86, 79, 255, 0.2)',
+              'rgba(86, 79, 255, 0.2)',
+              'rgba(86, 79, 255, 0.2)',
+              'rgba(86, 79, 255, 0.2)',
+              'rgba(86, 79, 255, 0.2)',
           ],
           borderColor: [
-              'rgba(86,79,255,1)',
+                'rgba(86,79,255,1)',
+                'rgba(86,79,255,1)',
+                'rgba(86,79,255,1)',
+                'rgba(86,79,255,1)',
+                'rgba(86,79,255,1)',
           ],
           borderWidth: 1,
           data: [90, 15, 20, 9, 30]
