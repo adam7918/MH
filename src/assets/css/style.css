@@ -1340,6 +1340,15 @@ body:before {
     color: #9ca2f3;
     opacity: .8;
 } 
+
+.vue-poll {
+    font-family: inherit;
+    color: inherit;
+}
+
+.bg {
+    background: #454B6C !important;
+}
  
 .color--white {
     color: #fff;
