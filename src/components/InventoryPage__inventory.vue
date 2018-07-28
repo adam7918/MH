@@ -25,7 +25,22 @@
         </div>
         <div class="inventory-container">
             <div v-if="checkTableFilters(item)" v-for="(item, index) in inventoryItems" :key="index" :class="itemClass[index]" @click="selectedItem = index">
-                {{item.itemName}}
+                <div class="inventory-item-header">
+                    <div class="inventory-item-name">
+                        <p class="inventory-item-level">Lvl {{item.itemLevelReq}}</p>
+                        <p>{{item.itemName}}</p>
+                    </div>
+                    <p>{{getItemType(item.itemType)}}</p>
+                </div>
+                <div class="inventory-item-stats">
+                    <span v-if="item.itemHp > 0">{{item.itemHp}} HP</span>
+                    <span v-if="item.itemStrength > 0">{{item.itemStrength}} Strength</span>
+                    <span v-if="item.itemDefense > 0">{{item.itemDefense}} Defense</span>
+                    <span v-if="item.itemAgility > 0">{{item.itemAgility}} Agility</span>
+                    <span v-if="item.itemEnergy > 0">{{item.itemEnergy}} Energy</span>
+                    <span v-if="item.itemBonus">{{item.itemBonus}}</span>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -58,8 +73,18 @@ export default {
                   'inventory-item--selected': (self.selectedItem == index ? true : false)
               }
             });
-            
+        },
+        getRarityClass: function(){
+            let self = this
+            return this.inventoryItems.map(function (item, index) {
+                return {
+                    'item-blue': (item.itemRarity == 1),
+                    'item-purple': (item.itemRarity == 2),
+                    'item-orange': (item.itemRarity == 3),
+                }
+        });
         }
+        
     },
     created() {
         if(!this.$auth.checkAuth()){
@@ -101,13 +126,13 @@ export default {
                     itemName: 'Sword',
                     itemLevelReq: 10,
                     itemType: 1,
-                    itemBonus: 0,
+                    itemBonus: '25% Chance to block on hit',
                     itemRarity: 3,
                     itemHp: 0,
                     itemEnergy: 0,
                     itemStrength: 30,
                     itemAgility: 0,
-                    itemDefense: 30,
+                    itemDefense: 0,
                     itemEquipped: 0
                 },
                 {
@@ -309,24 +334,11 @@ export default {
                     itemName: 'Runes',
                     itemLevelReq: 10,
                     itemType: 7,
-                    itemBonus: 0,
+                    itemBonus: '0.5% chance to restore all HP',
                     itemRarity: 1,
                     itemHp: 0,
                     itemEnergy: 0,
-                    itemStrength: 10,
-                    itemAgility: 10,
-                    itemDefense: 0,
-                    itemEquipped: 0
-                },
-                {
-                    itemName: 'Runes',
-                    itemLevelReq: 10,
-                    itemType: 7,
-                    itemBonus: 0,
-                    itemRarity: 2,
-                    itemHp: 100,
-                    itemEnergy: 0,
-                    itemStrength: 20,
+                    itemStrength: 0,
                     itemAgility: 0,
                     itemDefense: 0,
                     itemEquipped: 0
@@ -335,13 +347,26 @@ export default {
                     itemName: 'Runes',
                     itemLevelReq: 10,
                     itemType: 7,
-                    itemBonus: 0,
+                    itemBonus: '1.5% chance to restore all HP',
+                    itemRarity: 2,
+                    itemHp: 0,
+                    itemEnergy: 0,
+                    itemStrength: 0,
+                    itemAgility: 0,
+                    itemDefense: 0,
+                    itemEquipped: 0
+                },
+                {
+                    itemName: 'Runes',
+                    itemLevelReq: 10,
+                    itemType: 7,
+                    itemBonus: '3% chance to restore all HP',
                     itemRarity: 3,
                     itemHp: 0,
                     itemEnergy: 0,
-                    itemStrength: 30,
+                    itemStrength: 0,
                     itemAgility: 0,
-                    itemDefense: 30,
+                    itemDefense: 0,
                     itemEquipped: 0
                 },
                 {
@@ -379,6 +404,27 @@ export default {
                 return false
             } else {
                 return true
+            }
+        },
+        getItemType: function(itemType){
+            switch (itemType){
+                case 1:
+                    return 'Weapon'
+                case 2:
+                    return 'Helmet'
+                case 3:
+                    return 'Torso'
+                case 4:
+                    return 'Gauntlets'
+                case 5:
+                    return 'Greaves'
+                case 6:
+                    return 'Amulet'
+                case 7:
+                    return 'Rune'
+                default:
+                return 'Misc'
+
             }
         }
         

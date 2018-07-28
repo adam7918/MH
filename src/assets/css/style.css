@@ -1184,28 +1184,75 @@ body:before {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-right: -12px;
 }
 
 .inventory-item {
     display: flex;
     flex-direction: column;
-    width: 220px;
-    height: 85px;
+    width: 142px;
+    height: 90px;
     background-color: rgba(198,198,255,.05);
     border: .0625rem solid rgba(198,198,255,.15);
     border-radius: .3125rem;
-    margin: 0px 15px 15px 0px;
+    margin: 0px 12px 12px 0px;
 }
 
 .inventory-item:hover {
     cursor: pointer;
     opacity: .8;
 }
+
+.inventory-item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:#9195d6;
+    font-size: 13px;
+    margin: 0 8px;
+}
+
+.inventory-item-header p {
+    margin-bottom: 0;
+}
+
+.inventory-item-header > p {
+    opacity: .3;
+    font-size: 10px;
+    text-align: right;
+}
+
+.inventory-item-stats {
+    font-size: 11px;
+    margin: 5px 8px 0 8px;
+    display: flex;
+    flex-direction: column;
+    color: #9195d6;
+    opacity: .6;
+}
+
+.inventory-item-level {
+    font-size: 10px;
+    opacity: .3;
+}
+
+.inventory-item-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.inventory-item-name > p:last-child {
+    margin-top: 2px;
+}
  
 .item-purple:before {
     opacity: .9;
     background-image: -webkit-gradient(linear,right top,left top,from(#c188fb),to(#8e50f6));
     background-image: linear-gradient(270deg,#c188fb,#8e50f6);
+}
+
+.item-purple {
+    color: #c188fb;
 }
 
 .item-purple:after {
@@ -1218,6 +1265,10 @@ body:before {
     background-image: linear-gradient(270deg,#fcc08a,#f78c52);
 }
 
+.item-orange {
+    color: #fcc08a;
+}
+
 .item-orange:after {
     background-image: url(../images/item-glow-orange.png);
 }
@@ -1226,6 +1277,10 @@ body:before {
     opacity: .9;
     background-image: -webkit-gradient(linear,right top,left top,from(#78c0ff),to(#438cfd));
     background-image: linear-gradient(270deg,#78c0ff,#438cfd);
+}
+
+.item-blue {
+    color: #78c0ff;
 }
 
 .item-blue:after {
@@ -1255,6 +1310,10 @@ body:before {
 
 .inventory-item--selected {
     background-color: rgba(198,198,255,.15);
+}
+
+.inventory-item--selected:hover {
+    opacity: 1;
 }
 /* FAQ */ 
  
