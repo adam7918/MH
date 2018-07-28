@@ -18,7 +18,6 @@
                         { value: 3, text: 'Land', votes: 1 },
                         { value: 4, text: 'Crafting', votes: 4 } 
                     ],
-                    showResults:true
                 }
             }
         },
