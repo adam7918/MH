@@ -19,6 +19,7 @@ import MailPage from '@/components/MailPage'
 import Roadmap from '@/components/Roadmap'
 import Chat from '@/components/Chat'
 import Index from '@/components/Index'
+import Donate from '@/components/Donate'
 
 Vue.use(Router)
 
@@ -32,13 +33,23 @@ export default new Router({
         header: Header,
         userpanel: UserPanel,
         footer: Footer,
-        chat:Chat
       }
     },
     {
       path:'/login',
       name:'Login',
       component: LoginPage
+    },
+    {
+      path:'/donate',
+      name:'Donate',
+      components: {
+        default: Donate,
+        header: Header,
+        userpanel: UserPanel,
+        footer: Footer,
+        chat: Chat
+      }
     },
     {
       path:'/explore',

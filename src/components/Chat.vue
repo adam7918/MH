@@ -17,9 +17,9 @@
                     </div>
                 </div>
             </div>
-            <form @submit.prevent="sendMessage">
+            <form @submit.prevent>
                     <div class="chat-input">
-                        <input v-if="loggedIn" type="text" v-model="message" placeholder="Type your message...">
+                        <input v-if="loggedIn" v-on:keyup.enter="sendMessage" type="text" v-model="message" placeholder="Type your message...">
                         <input v-else type="text" placeholder="Must be logged in to chat" disabled>
                     </div>
             </form>
