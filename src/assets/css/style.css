@@ -1034,6 +1034,14 @@ body:before {
     padding-left: 20px !important; 
 }
 
+.vue-poll .ans-cnt .ans-no-vote {
+    border: 1px solid #9195d6 !important;
+}
+
+.vue-poll .ans-cnt .ans-no-vote .txt {
+    color: #9195d6 !important;
+}
+
 .ranking-table-row {
     color: #9ca2f3;
     font-size: 13px;
@@ -1370,6 +1378,7 @@ body:before {
     margin:0 16%;
     font-size: 14px;
 }
+
 
 @media all and (max-width: 1199px) { 
     .content {
