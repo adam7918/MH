@@ -3,6 +3,8 @@
 > Medieval Havoc Text-based MMORPG. 
 > Discontinued
 
+![appScreenshot](screencapture-medievalhavoc-2018-07-26-17_09_09.png)
+
 ## Build Setup
 
 ``` bash
